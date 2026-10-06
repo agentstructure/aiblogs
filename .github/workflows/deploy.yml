@@ -17,7 +17,7 @@ jobs:
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: m
         run: |
           pip install --quiet pyyaml
@@ -36,10 +36,10 @@ jobs:
       FTP_USER: ${{ secrets[format('FTP_USER_{0}', matrix.site.key)] }}
       FTP_PASS: ${{ secrets[format('FTP_PASS_{0}', matrix.site.key)] }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main  # pick up the post the daily job just committed
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
