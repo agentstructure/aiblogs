@@ -1,0 +1,68 @@
+name: Deploy sites
+
+on:
+  push:
+    branches: [main]
+    paths: ["content/**", "templates/**", "static/**", "php/**", "scripts/build.py", "scripts/common.py", "scripts/brevo.py", "sites.yaml"]
+  workflow_dispatch:
+  workflow_call:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  sites:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"dir":v.get("ftp_dir","public_html/")} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: sites
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        site: ${{ fromJSON(needs.sites.outputs.matrix) }}
+    name: deploy ${{ matrix.site.slug }}
+    env:
+      FTP_HOST: ${{ secrets[format('FTP_HOST_{0}', matrix.site.key)] }}
+      FTP_USER: ${{ secrets[format('FTP_USER_{0}', matrix.site.key)] }}
+      FTP_PASS: ${{ secrets[format('FTP_PASS_{0}', matrix.site.key)] }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # pick up the post the daily job just committed
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/build.py ${{ matrix.site.slug }}
+      - name: Check FTP secrets
+        id: ftp
+        run: |
+          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+            echo "::warning title=${{ matrix.site.slug }}::FTP secrets FTP_HOST_${{ matrix.site.key }} / FTP_USER_${{ matrix.site.key }} / FTP_PASS_${{ matrix.site.key }} are not set, so the site was built but not uploaded."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Upload to Hostinger
+        if: steps.ftp.outputs.ready == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ env.FTP_HOST }}
+          username: ${{ env.FTP_USER }}
+          password: ${{ env.FTP_PASS }}
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftp' }}
+          local-dir: dist/${{ matrix.site.slug }}/
+          server-dir: ${{ matrix.site.dir }}

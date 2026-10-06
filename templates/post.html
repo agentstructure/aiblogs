@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} | {{ site.name }}{% endblock %}
+{% block description %}{{ post.description }}{% endblock %}
+{% block canonical %}{{ post.path }}{% endblock %}
+{% block head %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.description }}">
+<meta property="og:url" content="{{ site.url }}{{ post.path }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<script type="application/ld+json">{{ jsonld | safe }}</script>
+{% endblock %}
+{% block main %}
+<article class="post">
+  <h1>{{ post.title }}</h1>
+  <p class="meta"><time datetime="{{ post.date }}">{{ post.date.strftime('%B %-d, %Y') }}</time> &middot; {{ post.reading_minutes }} min read{% if post.tags %} &middot; {{ post.tags | join(', ') }}{% endif %}</p>
+  <div class="body">{{ post.body_html | safe }}</div>
+  {% if post.sources %}
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>{% for s in post.sources %}<li><a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.title }}</a></li>{% endfor %}</ol>
+  </section>
+  {% endif %}
+</article>
+{% if related %}
+<section class="related">
+  <h2>More from {{ site.name }}</h2>
+  <ul>{% for p in related %}<li><a href="{{ p.path }}">{{ p.title }}</a></li>{% endfor %}</ul>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{% if page > 1 %}Page {{ page }} | {% endif %}{{ site.name }} | {{ site.tagline }}{% endblock %}
+{% block canonical %}{{ page_path }}{% endblock %}
+{% block main %}
+{% if page == 1 %}
+<section class="hero">
+  <h1>{{ site.name }}</h1>
+  <p>{{ site.tagline }}</p>
+</section>
+{% endif %}
+{% if not posts %}
+<p class="empty">The first articles are on the way. Subscribe below to get them in your inbox.</p>
+{% endif %}
+<ul class="post-list">
+{% for p in posts %}
+  <li>
+    <a href="{{ p.path }}"><h2>{{ p.title }}</h2></a>
+    <p class="meta"><time datetime="{{ p.date }}">{{ p.date.strftime('%B %-d, %Y') }}</time> &middot; {{ p.reading_minutes }} min read</p>
+    <p>{{ p.description }}</p>
+  </li>
+{% endfor %}
+</ul>
+<nav class="pager">
+  {% if prev_path %}<a href="{{ prev_path }}">&larr; Newer</a>{% endif %}
+  {% if next_path %}<a href="{{ next_path }}">Older &rarr;</a>{% endif %}
+</nav>
+{% endblock %}

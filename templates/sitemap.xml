@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/</loc></url>
+  <url><loc>{{ site.url }}/about/</loc></url>
+  {% for p in posts %}<url><loc>{{ site.url }}{{ p.path }}</loc><lastmod>{{ p.date }}</lastmod></url>
+  {% endfor %}
+</urlset>

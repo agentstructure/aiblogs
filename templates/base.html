@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site.name }} | {{ site.tagline }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
+<link rel="canonical" href="{{ site.url }}{% block canonical %}/{% endblock %}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+<link rel="stylesheet" href="/style.css?v={{ build_id }}">
+<style>:root { --accent: {{ site.accent }}; }</style>
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">{{ site.name }}</a>
+    <nav><a href="/">Articles</a><a href="/about/">About</a><a class="btn-sm" href="#subscribe">Subscribe</a></nav>
+  </div>
+</header>
+<main class="wrap">
+{% block main %}{% endblock %}
+</main>
+<section id="subscribe" class="subscribe">
+  <div class="wrap narrow">
+    <h2>Get the weekly roundup</h2>
+    <p>Every Monday, the week's {{ site.name }} articles in one short email. Free, unsubscribe anytime.</p>
+    <form class="subscribe-form" action="/subscribe.php" method="post">
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="form-msg" role="status"></p>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; {{ year }} {{ site.name }} &middot; <a href="/about/">About</a> &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/feed.xml">RSS</a></p>
+    <p class="disclaimer">Content on this site is for information and education only and is not investment, legal or financial advice. Articles are researched and drafted with AI assistance. Do your own research.</p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.subscribe-form').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = form.parentNode.querySelector('.form-msg');
+    msg.textContent = 'Subscribing...';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { msg.textContent = d.message; if (d.ok) form.reset(); })
+      .catch(function () { msg.textContent = 'Something went wrong. Please try again.'; });
+  });
+});
+</script>
+</body>
+</html>

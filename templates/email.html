@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ subject }}</title></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#18181b;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 0;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;overflow:hidden;">
+  <tr><td style="background:{{ site.accent }};padding:20px 28px;">
+    <a href="{{ site.url }}" style="color:#ffffff;font-size:22px;font-weight:700;text-decoration:none;">{{ site.name }}</a>
+    <div style="color:#ffffff;opacity:.9;font-size:14px;margin-top:4px;">Weekly roundup &middot; {{ week_label }}</div>
+  </td></tr>
+  <tr><td style="padding:24px 28px 8px;font-size:16px;line-height:1.6;">{{ intro_html | safe }}</td></tr>
+  {% for p in posts %}
+  <tr><td style="padding:12px 28px;border-top:1px solid #e4e4e7;">
+    <a href="{{ site.url }}{{ p.path }}?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=weekly" style="color:#18181b;font-size:18px;font-weight:700;text-decoration:none;line-height:1.35;">{{ p.title }}</a>
+    <div style="color:#71717a;font-size:13px;margin:4px 0 6px;">{{ p.date.strftime('%A, %B %-d') }}</div>
+    <div style="font-size:15px;line-height:1.55;color:#3f3f46;">{{ p.description }}</div>
+    <a href="{{ site.url }}{{ p.path }}?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=weekly" style="display:inline-block;margin-top:8px;color:{{ site.accent }};font-weight:600;font-size:14px;text-decoration:none;">Read the article &rarr;</a>
+  </td></tr>
+  {% endfor %}
+  <tr><td style="padding:20px 28px;border-top:1px solid #e4e4e7;color:#71717a;font-size:12px;line-height:1.5;">
+    You're getting this because you subscribed at <a href="{{ site.url }}" style="color:#71717a;">{{ site.domain }}</a>. For information only, not investment advice.<br>
+    <a href="{{ '{{' }} unsubscribe {{ '}}' }}" style="color:#71717a;">Unsubscribe</a>
+  </td></tr>
+</table>
+</td></tr></table>
+</body></html>

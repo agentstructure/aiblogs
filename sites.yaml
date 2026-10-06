@@ -1,0 +1,78 @@
+# One entry per blog. `key` is used in secret names (FTP_HOST_<KEY>, FTP_USER_<KEY>, FTP_PASS_<KEY>).
+# `pillars` rotate day by day so each blog covers a balanced mix of topics.
+
+beforethebreakout:
+  key: BEFORETHEBREAKOUT
+  name: Before The Breakout
+  domain: beforethebreakout.com
+  tagline: Spotting stocks setting up before the big move.
+  accent: "#16a34a"
+  audience: >
+    Active retail traders and swing traders who look for stocks building bases,
+    tightening ranges and gathering volume ahead of a breakout.
+  pillars:
+    - Stocks building bases or tightening ranges near breakout levels, with the levels that matter
+    - Upcoming catalysts this week (earnings, FDA dates, product launches, index changes) and the setups around them
+    - Unusual volume and relative-strength leaders, and what the price action says
+    - Sector rotation, which groups are leading and which names are setting up inside them
+    - Trading education, how to read bases, cup-and-handle, flags, volume dry-ups and failed breakouts
+    - Small and mid cap names under the radar with improving fundamentals and constructive charts
+    - Weekly market structure, indexes, breadth and what it means for breakout odds
+  ftp_dir: public_html/
+
+capitalraising:
+  key: CAPITALRAISING
+  name: Capital Raising
+  domain: capitalraising.org
+  tagline: News, data and playbooks for raising capital.
+  accent: "#2563eb"
+  audience: >
+    Founders, CFOs, fund managers and small-business owners raising money, plus investors
+    who follow private and public capital markets.
+  pillars:
+    - Notable funding rounds this week, who raised, from whom, at what stage, and why it matters
+    - IPO, direct listing and SPAC market updates, pipeline, pricing and post-listing performance
+    - Venture capital and private equity trends, fund closes, dry powder, valuations and terms
+    - Regulation and securities law for issuers (Reg D, Reg A+, Reg CF, SEC rule changes) in plain English
+    - Practical fundraising playbooks, pitch decks, investor outreach, term sheets, due diligence
+    - Debt, venture debt, revenue-based financing and alternative capital options
+    - Crowdfunding and retail investor platforms, results and lessons from recent campaigns
+  ftp_dir: public_html/
+
+defensestocks:
+  key: DEFENSESTOCKS
+  name: Defense Stocks
+  domain: defensestocks.org
+  tagline: Defense, aerospace and national security investing.
+  accent: "#b45309"
+  audience: >
+    Investors following publicly traded defense primes, aerospace suppliers, space and
+    defense-tech companies, and the budgets and geopolitics that drive them.
+  pillars:
+    - Major contract awards this week (DoD, NATO allies) and which listed companies benefit
+    - Defense budget, appropriations and policy news and the stocks most exposed
+    - Geopolitical developments and their read-through to defense demand and specific names
+    - Earnings, guidance and backlog analysis for defense primes and suppliers
+    - Defense tech, drones, space, cyber and munitions, the emerging public players
+    - European and allied defense stocks and the rearmament spending cycle
+    - Defense ETFs, valuation comparisons and portfolio angles
+  ftp_dir: public_html/
+
+gamingstocks:
+  key: GAMINGSTOCKS
+  name: Gaming Stocks
+  domain: gamingstocks.org
+  tagline: Investing in video games, esports, casinos and betting.
+  accent: "#7c3aed"
+  audience: >
+    Investors following video game publishers, platforms and hardware makers, plus casino,
+    online gambling and sports betting stocks.
+  pillars:
+    - Video game publisher news, release slates, sales data and what it means for the stocks
+    - Console, PC and mobile platform trends and the hardware and chip names tied to them
+    - Casino and resort operator results, Las Vegas and Macau trends
+    - Online sports betting and iGaming, state legalization, handle, hold and market share
+    - Earnings previews and recaps for gaming stocks reporting this week
+    - Esports, streaming and gaming engagement data and the listed companies involved
+    - M&A, deals and consolidation across gaming
+  ftp_dir: public_html/
