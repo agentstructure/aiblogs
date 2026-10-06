@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - id: m
         run: |
+          pip install --quiet pyyaml
           echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"dir":v.get("ftp_dir","public_html/")} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
 
   deploy:
