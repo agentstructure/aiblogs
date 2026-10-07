@@ -9,6 +9,8 @@ import { chromium } from 'playwright';
 const SITES = ['https://defensestocks.org/', 'https://capitalraising.org/',
                'https://gamingstocks.org/', 'https://beforethebreakout.net/'];
 const MAX_PAGES = 80;
+const PAUSE_MS = 3000;   // Hostinger rate-limits fast crawlers (HTTP 429), so go slowly
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 const SIGNUP = {
   'defensestocks.org': ['/subscribers-api.php'],
   'capitalraising.org': ['/subscribe.php'],
@@ -31,11 +33,12 @@ async function status(url, method = 'HEAD') {
 async function checkSite(browser, start) {
   const origin = new URL(start).origin, host = new URL(start).host;
   const queue = [start], seen = new Set(), problems = [], external = new Map(), pages = [];
+  const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 aiblogs-sitecheck/1.0' });
   while (queue.length && seen.size < MAX_PAGES) {
     const url = queue.shift().split('#')[0];
     if (seen.has(url)) continue;
     seen.add(url);
-    const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 aiblogs-sitecheck/1.0' });
+    await sleep(PAUSE_MS);
     const page = await ctx.newPage();
     const errs = [];
     page.on('pageerror', e => errs.push(`JS error: ${e.message.slice(0, 160)}`));
@@ -44,10 +47,15 @@ async function checkSite(browser, start) {
     page.on('response', r => { if (r.status() >= 400 && r.url().startsWith(origin)) errs.push(`HTTP ${r.status()}: ${r.url().slice(0, 120)}`); });
     page.on('dialog', d => { errs.push(`popup: "${d.message().slice(0, 100)}"`); d.dismiss().catch(() => {}); });
     let code;
-    try {
-      const resp = await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
-      code = resp?.status();
-    } catch (e) { code = `load failed: ${e.message.split('\n')[0].slice(0, 100)}`; }
+    for (let attempt = 0; attempt < 3; attempt++) {
+      errs.length = 0;
+      try {
+        const resp = await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+        code = resp?.status();
+      } catch (e) { code = `load failed: ${e.message.split('\n')[0].slice(0, 100)}`; }
+      if (code !== 429) break;
+      await sleep(60000);
+    }
     pages.push([url, code]);
     if (code !== 200) problems.push(`${url} → ${code}`);
     if (code === 200 && /html/.test(await page.evaluate(() => document.contentType).catch(() => ''))) {
@@ -83,18 +91,21 @@ async function checkSite(browser, start) {
       const forms = await page.$$eval('input[type=email], input[name*=email i]', els => els.length);
       if (forms) pages[pages.length - 1].push(`${forms} email field(s)`);
     }
-    for (const e of new Set(errs)) problems.push(`${url}: ${e}`);
-    await ctx.close();
+    for (const e of new Set(errs)) if (!/ 429|status of 429/.test(e)) problems.push(`${url}: ${e}`);
+    await page.close();
   }
+  await ctx.close();
   // Links to files and other sites
   const broken = [];
   for (const [href, { text, from }] of external) {
+    await sleep(href.startsWith(origin) ? PAUSE_MS : 200);
     const s = await status(href);
     if (typeof s !== 'number' || s >= 400) broken.push(`"${text}" → ${href} (${s}) on ${from}`);
   }
   // Signup endpoints: invalid address only
   const signup = [];
   for (const path of SIGNUP[host] || []) {
+    await sleep(PAUSE_MS);
     try {
       const r = await fetch(origin + path, { method: 'POST', headers: { 'Content-Type': 'application/json', 'User-Agent': 'aiblogs-sitecheck/1.0' },
                                              body: JSON.stringify({ email: 'not-an-email', source: 'sitecheck' }), signal: AbortSignal.timeout(20000) });
@@ -121,6 +132,6 @@ async function checkSite(browser, start) {
 }
 
 const browser = await chromium.launch();
-for (const s of SITES) await checkSite(browser, s);
+for (const s of SITES) { await checkSite(browser, s); await sleep(60000); }
 await browser.close();
 console.log(out.join('\n'));
