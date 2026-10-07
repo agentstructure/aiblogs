@@ -1,0 +1,43 @@
+name: Scan live sites
+
+# Read-only: downloads each live homepage and the files it loads (what any visitor's browser
+# gets) and reports the tech, forms and third-party services it finds.
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download public pages
+        run: |
+          for d in defensestocks.org gamingstocks.org capitalraising.org beforethebreakout.com; do
+            mkdir -p "scan/$d"
+            (cd "scan/$d" && wget -q -e robots=off --timeout=20 --tries=2 -p -H -nd -k --max-redirect=3 "https://$d/" "https://$d/blog.html" "https://$d/archive.html" || true)
+          done
+      - name: Report
+        run: |
+          {
+          for d in scan/*/; do
+            n=$(basename "$d")
+            echo "## $n"
+            echo '```'
+            echo "files: $(ls "$d" | tr '\n' ' ' | head -c 1500)"
+            echo "--- generator / frameworks"
+            grep -rhoiE '<meta[^>]+generator[^>]*>|wp-content|__NEXT_DATA__|_next/|data-reactroot|astro-|vite|tailwind' "$d" | sort | uniq -c | head
+            echo "--- form actions"
+            grep -rhoiE '<form[^>]*>' "$d" | head -20
+            echo "--- fetch/post endpoints"
+            grep -rhoE "(fetch|axios\.post|\.open)\(['\"\`][^'\"\`]+" "$d" | sort -u | head -40
+            echo "--- third-party domains"
+            grep -rhoE 'https?://[a-zA-Z0-9.-]+\.[a-z]{2,}' "$d" | sed -E 's#https?://##' | sort | uniq -c | sort -rn | head -40
+            echo "--- email/payment providers"
+            grep -rhoiE 'mailchimp|list-manage|convertkit|kit\.com|beehiiv|substack|brevo|sendinblue|sibforms|mailerlite|hostinger|reach\.|formspree|getform|web3forms|emailjs|supabase|firebase|airtable|google\.com/macros|script\.google|stripe|gumroad|lemonsqueezy|paypal|make\.com|hook\.[a-z0-9]+\.make|zapier|n8n' "$d" | tr 'A-Z' 'a-z' | sort | uniq -c | sort -rn
+            echo '```'
+          done
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: site-scan
+          path: scan/
+          retention-days: 14
