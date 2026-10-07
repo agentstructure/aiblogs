@@ -7,12 +7,14 @@ Usage:
   python scripts/hostinger.py inventory
   python scripts/hostinger.py backup <domain> <out_dir>
   python scripts/hostinger.py upload <domain> <local_file> <remote_path>   (path under public_html)
+  python scripts/hostinger.py inspect <domain>   (file list + posting code, secrets redacted)
 """
 
 from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -177,6 +179,40 @@ def cmd_backup(h: Hostinger, domain: str, out_dir: str):
           f"{len(skipped)} not readable as text (see _skipped.json)")
 
 
+SECRET_LINE = re.compile(r"(key|pass|secret|token|auth|smtp|@)", re.I)
+TOKEN_LIKE = re.compile(r"""(['"])(?=[^'"]*\d)[A-Za-z0-9_+=$!#%^&*-]{16,}\1""")
+
+
+def redact(code: str) -> str:
+    """Code with anything that could be a credential or an email address blanked out."""
+    out = []
+    for line in code.splitlines():
+        line = TOKEN_LIKE.sub(r"\1[redacted]\1", line)
+        if SECRET_LINE.search(line):
+            line = re.sub(r"""(['"]).*?\1""", r"\1[redacted]\1", line)
+        out.append(line)
+    return "\n".join(out)
+
+
+def cmd_inspect(h: Hostinger, domain: str):
+    """What a site is made of and how its posting endpoints work, without exposing secrets."""
+    user = h.username_for(domain)
+    entries = h.list_files(user, domain)
+    skip = re.compile(r"(^|/)(node_modules|vendor|\.git|cache|assets/img|images?)/")
+    print(f"===== {domain}: {len(entries)} entries")
+    for e in entries:
+        if e["type"] == "file" and not skip.search(e["path"]):
+            print(f"{e['size_bytes']:>9}  {e['path']}")
+    for e in entries:
+        if e["type"] == "file" and e["path"].endswith(".php") and not skip.search(e["path"]) \
+                and not re.search(r"config|secret|credential", e["path"], re.I):
+            print(f"\n===== {e['path']}")
+            try:
+                print(redact(h.read_file(user, domain, e["path"])))
+            except HostingerError as err:
+                print(f"(not readable: {err})")
+
+
 def cmd_upload(h: Hostinger, domain: str, local: str, remote: str):
     h.upload(h.username_for(domain), domain, Path(local).read_bytes(), remote)
     print(f"uploaded {remote} to {domain}")
@@ -187,7 +223,7 @@ def main(argv: list[str]):
         raise SystemExit(__doc__)
     h = Hostinger()
     cmd, args = argv[0], argv[1:]
-    {"inventory": cmd_inventory, "backup": cmd_backup, "upload": cmd_upload}[cmd](h, *args)
+    {"inventory": cmd_inventory, "backup": cmd_backup, "upload": cmd_upload, "inspect": cmd_inspect}[cmd](h, *args)
 
 
 if __name__ == "__main__":

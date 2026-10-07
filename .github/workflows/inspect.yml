@@ -1,0 +1,21 @@
+name: Inspect live sites
+
+# Read only. Lists each site's files and prints its PHP code with anything that looks like a
+# password, key or email address redacted, so the posting endpoints can be matched.
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    # even redacted, site code stays out of public logs
+    if: ${{ github.event.repository.private }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        domain: [defensestocks.org, capitalraising.org, gamingstocks.org, beforethebreakout.net]
+    env:
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 scripts/hostinger.py inspect ${{ matrix.domain }}
