@@ -132,9 +132,7 @@ class Hostinger:
             **auth, "Upload-Length": str(len(data)), "Upload-Offset": "0"})
         if status not in (200, 201):
             raise HostingerError(status, f"create upload for {remote_path}: {msg[:200]!r}")
-        location = headers.get("Location") or headers.get("location")
-        if location:
-            target = urllib.parse.urljoin(target, location)
+        # Hostinger takes the bytes at the same URL (not the TUS Location header)
         status, _, msg = _request("PATCH", target, body=data, headers={
             **auth, "Upload-Offset": "0", "Content-Type": "application/offset+octet-stream"})
         if status not in (200, 204):
