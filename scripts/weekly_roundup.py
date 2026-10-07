@@ -1,5 +1,7 @@
 """Email each site's subscribers a roundup of the last 7 days of articles (via Brevo).
 
+The intro comes from roundups/<site>/<date>.md, written by the daily Claude routine on Mondays.
+
 Usage: python scripts/weekly_roundup.py --all [--dry-run]
 --dry-run writes the emails to dist/emails/ without sending.
 """
@@ -11,34 +13,20 @@ import datetime as dt
 import os
 import sys
 
-import anthropic
 import markdown
 
 from build import env
 from common import ROOT, get_site, load_posts, load_sites
 
-MODEL = os.environ.get("CLAUDE_MODEL") or "claude-opus-5-5"
 
-
-def write_intro(client: anthropic.Anthropic, site: dict, posts) -> str:
-    listing = "\n".join(f"- {p.title}: {p.description}" for p in posts)
-    response = client.beta.messages.create(
-        model=MODEL,
-        max_tokens=4000,
-        output_config={"effort": "low"},
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
-        system=(f"You write the weekly email newsletter for {site['name']} ({site['tagline']}). "
-                f"Audience: {site['audience']}"),
-        messages=[{"role": "user", "content": (
-            "Write a 2 to 4 sentence intro for this week's roundup email that ties together the "
-            "themes of these articles and gives readers a reason to click. Plain, confident, no hype, "
-            "no greeting line, no sign-off, no investment advice. Reply with the intro only.\n\n" + listing
-        )}],
-    )
-    if response.stop_reason == "refusal":
-        raise RuntimeError("Claude declined to write the intro")
-    return "".join(b.text for b in response.content if b.type == "text").strip()
+def load_intro(site: dict, slug: str, posts, today: dt.date) -> str:
+    """The routine writes roundups/<site>/<date>.md on Mondays; fall back to a plain intro."""
+    path = ROOT / "roundups" / slug / f"{today.isoformat()}.md"
+    if path.exists() and path.read_text().strip():
+        return path.read_text().strip()
+    n = len(posts)
+    return (f"Here {'is' if n == 1 else 'are'} this week's {n} {site['name']} "
+            f"article{'' if n == 1 else 's'}, in case you missed {'it' if n == 1 else 'any'}.")
 
 
 def main() -> int:
@@ -54,7 +42,6 @@ def main() -> int:
 
     today = dt.date.today()
     since = today - dt.timedelta(days=args.days)
-    client = anthropic.Anthropic()
     brevo = None if args.dry_run else __import__("brevo").Brevo()
     failures = []
 
@@ -66,7 +53,7 @@ def main() -> int:
             continue
         posts.sort(key=lambda p: p.date)
         try:
-            intro = write_intro(client, site, posts)
+            intro = load_intro(site, slug, posts, today)
             week_label = f"{posts[0].date:%b %-d} to {posts[-1].date:%b %-d, %Y}"
             subject = f"{site['name']} weekly: {posts[-1].title}"
             if len(posts) > 1:
