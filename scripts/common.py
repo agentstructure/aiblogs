@@ -19,7 +19,9 @@ def load_sites() -> dict[str, dict]:
         sites = yaml.safe_load(f)
     for slug, site in sites.items():
         site["slug"] = slug
-        site["url"] = f"https://{site['domain']}"
+        site["base"] = (site.get("base_path") or "").rstrip("/")  # e.g. "/blog"
+        site["home"] = f"https://{site['domain']}"
+        site["url"] = site["home"] + site["base"]
     return sites
 
 

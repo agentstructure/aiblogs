@@ -14,7 +14,7 @@
 <ul class="post-list">
 {% for p in posts %}
   <li>
-    <a href="{{ p.path }}"><h2>{{ p.title }}</h2></a>
+    <a href="{{ site.base }}{{ p.path }}"><h2>{{ p.title }}</h2></a>
     <p class="meta"><time datetime="{{ p.date }}">{{ p.date.strftime('%B %-d, %Y') }}</time> &middot; {{ p.reading_minutes }} min read</p>
     <p>{{ p.description }}</p>
   </li>

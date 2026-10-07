@@ -96,8 +96,9 @@ def build_site(site: dict) -> None:
 
     write(out / "feed.xml", env.get_template("feed.xml").render(**ctx, posts=posts[:30]))
     write(out / "sitemap.xml", env.get_template("sitemap.xml").render(**ctx, posts=posts))
-    write(out / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
-    write(out / ".htaccess", "Options -Indexes\nErrorDocument 404 /\n")
+    if not site["base"]:  # in a subfolder the main site owns robots.txt
+        write(out / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
+    write(out / ".htaccess", f"Options -Indexes\nErrorDocument 404 {site['base']}/\n")
     shutil.copy(ROOT / "static" / "style.css", out / "style.css")
     shutil.copy(ROOT / "php" / "subscribe.php", out / "subscribe.php")
 

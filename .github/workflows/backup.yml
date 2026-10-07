@@ -1,0 +1,57 @@
+name: Back up live sites
+
+# Downloads each site's current files from Hostinger (read only) and keeps them as a
+# workflow artifact for 30 days. Run it before turning uploads on for a site.
+on:
+  workflow_dispatch:
+
+jobs:
+  sites:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: m
+        run: |
+          pip install --quiet pyyaml
+          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"root":v.get("site_root","public_html/")} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
+
+  backup:
+    needs: sites
+    # site files can include config with passwords; never publish them from a public repo
+    if: ${{ github.event.repository.private }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        site: ${{ fromJSON(needs.sites.outputs.matrix) }}
+    name: backup ${{ matrix.site.slug }}
+    env:
+      FTP_HOST: ${{ secrets[format('FTP_HOST_{0}', matrix.site.key)] }}
+      FTP_USER: ${{ secrets[format('FTP_USER_{0}', matrix.site.key)] }}
+      FTP_PASS: ${{ secrets[format('FTP_PASS_{0}', matrix.site.key)] }}
+    steps:
+      - name: Download site files
+        run: |
+          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+            echo "::error title=${{ matrix.site.slug }}::FTP secrets for ${{ matrix.site.key }} are not set."
+            exit 1
+          fi
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" -e "set ftp:ssl-allow no; mirror --parallel=4 ${{ matrix.site.root }} backup/${{ matrix.site.slug }}; quit"
+          echo "Downloaded $(find backup -type f | wc -l) files"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: backup-${{ matrix.site.slug }}
+          path: backup/
+          retention-days: 30
+
+  public-repo:
+    needs: sites
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error::The repo is public. Make it private (Settings > General > Change visibility) before backing up site files, since they can contain passwords."
+          exit 1

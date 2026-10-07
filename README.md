@@ -54,6 +54,13 @@ roundup can come from `newsletter@<domain>`. Brevo gives you DNS records to add 
 (`public_html/` by default). Change it if a site's FTP account opens somewhere else, e.g.
 `domains/example.com/public_html/`.
 
+### Existing sites
+
+Each domain already has a live site, so the blog lives at `<domain>/blog/` (`base_path` and
+`ftp_dir` in `sites.yaml`) and never touches the existing pages. Uploads stay off until a site
+sets `upload: true`. Before turning one on, run Actions > **Back up live sites** (needs the repo
+to be private) to keep a copy of the current files.
+
 ### First run
 
 1. Add the secrets above, then run Actions > **Deploy sites** once to upload the empty sites.

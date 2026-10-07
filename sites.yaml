@@ -1,4 +1,5 @@
 # One entry per blog. `key` is used in secret names (FTP_HOST_<KEY>, FTP_USER_<KEY>, FTP_PASS_<KEY>).
+# `base_path: /blog` puts the blog at <domain>/blog/ next to the existing site, uploaded to ftp_dir.
 # `upload: true` lets the deploy workflow push the built site to ftp_dir on Hostinger.
 # `pillars` rotate day by day so each blog covers a balanced mix of topics.
 
@@ -19,7 +20,8 @@ beforethebreakout:
     - Trading education, how to read bases, cup-and-handle, flags, volume dry-ups and failed breakouts
     - Small and mid cap names under the radar with improving fundamentals and constructive charts
     - Weekly market structure, indexes, breadth and what it means for breakout odds
-  ftp_dir: public_html/
+  base_path: /blog
+  ftp_dir: public_html/blog/
   upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 capitalraising:
@@ -39,7 +41,8 @@ capitalraising:
     - Practical fundraising playbooks, pitch decks, investor outreach, term sheets, due diligence
     - Debt, venture debt, revenue-based financing and alternative capital options
     - Crowdfunding and retail investor platforms, results and lessons from recent campaigns
-  ftp_dir: public_html/
+  base_path: /blog
+  ftp_dir: public_html/blog/
   upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 defensestocks:
@@ -59,7 +62,8 @@ defensestocks:
     - Defense tech, drones, space, cyber and munitions, the emerging public players
     - European and allied defense stocks and the rearmament spending cycle
     - Defense ETFs, valuation comparisons and portfolio angles
-  ftp_dir: public_html/
+  base_path: /blog
+  ftp_dir: public_html/blog/
   upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 gamingstocks:
@@ -79,5 +83,6 @@ gamingstocks:
     - Earnings previews and recaps for gaming stocks reporting this week
     - Esports, streaming and gaming engagement data and the listed companies involved
     - M&A, deals and consolidation across gaming
-  ftp_dir: public_html/
+  base_path: /blog
+  ftp_dir: public_html/blog/
   upload: false  # the domain already has a live site; don't overwrite it until Sean decides
