@@ -321,6 +321,20 @@ def check_signups(_h=None):
     print(f"{status(sec)}  {sec}")
 
 
+def check_private(_h=None):
+    """Subscriber lists must not be downloadable. Prints only status, type and size, never content."""
+    for url in ["https://defensestocks.org/subscribers.json", "https://capitalraising.org/subscribers.json",
+                "https://gamingstocks.org/data/subscribers.json", "https://beforethebreakout.net/subscribers.json"]:
+        req = urllib.request.Request(url + "?nocache=1", headers={"User-Agent": UA, "Cache-Control": "no-cache"})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                body, code, ctype = r.read(), r.status, r.headers.get("Content-Type", "")
+        except urllib.error.HTTPError as e:
+            body, code, ctype = e.read(), e.code, e.headers.get("Content-Type", "")
+        exposed = code == 200 and body.count(b"@") > 0 and body.lstrip()[:1] in (b"[", b"{")
+        print(f"{code}  {url}  {ctype}  {len(body)} bytes  {'EXPOSED' if exposed else 'not exposed'}")
+
+
 def check(_h=None):
     for url in ["https://defensestocks.org/", "https://defensestocks.org/blog.html",
                 "https://defensestocks.org/daily-articles.json", "https://defensestocks.org/subscribers.json",
@@ -334,6 +348,7 @@ if __name__ == "__main__":
     steps = {"block-subscribers": block_subscribers, "gamingstocks-blog": gamingstocks_blog, "check": check,
              "fix-gs-subscribe": fix_gs_subscribe, "fix-gs-home": fix_gs_home,
              "fix-gs-placeholders": fix_gs_placeholders, "fix-cr-quotes": fix_cr_quotes,
-             "fix-ds-sec": fix_ds_sec, "check-signups": check_signups}
+             "fix-ds-sec": fix_ds_sec, "check-signups": check_signups,
+             "check-private": check_private}
     for name in sys.argv[1:] or ["check"]:
         steps[name](Hostinger() if not name.startswith("check") else None)
