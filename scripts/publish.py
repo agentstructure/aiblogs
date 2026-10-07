@@ -45,7 +45,7 @@ def article_html(post, site: dict) -> str:
     sources = "".join(
         f'<li><a href="{html.escape(s["url"])}" rel="noopener" target="_blank">{html.escape(s.get("title") or s["url"])}</a></li>'
         for s in post.sources)
-    out = f"<h1>{html.escape(post.title)}</h1>\n{post.body_html}"
+    out = f"<h1>{html.escape(post.title, quote=False)}</h1>\n{post.body_html}"
     if sources:
         out += f"\n<h2>Sources</h2>\n<ul>{sources}</ul>"
     return out
