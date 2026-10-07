@@ -1,7 +1,7 @@
 name: Back up live sites
 
 # Reads each site's current files through the Hostinger API (read only, needs the
-# HOSTINGER_API_TOKEN secret) and keeps them as a workflow artifact for 30 days.
+# HOSTINGERAPITOKEN secret) and keeps them as a workflow artifact for 30 days.
 # Run it before anything is published to a site.
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
     env:
-      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
     steps:
       - uses: actions/checkout@v5
       - id: m
@@ -22,7 +22,7 @@ jobs:
       - name: List websites on the Hostinger account
         run: |
           if [ -z "$HOSTINGER_API_TOKEN" ]; then
-            echo "::error::Add the HOSTINGER_API_TOKEN secret (hPanel > profile > API) first."
+            echo "::error::Add the HOSTINGERAPITOKEN secret (hPanel > profile > API) first."
             exit 1
           fi
           python3 scripts/hostinger.py inventory
@@ -38,7 +38,7 @@ jobs:
         site: ${{ fromJSON(needs.inventory.outputs.matrix) }}
     name: backup ${{ matrix.site.slug }}
     env:
-      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
     steps:
       - uses: actions/checkout@v5
       - run: python3 scripts/hostinger.py backup ${{ matrix.site.domain }} backup/${{ matrix.site.slug }}

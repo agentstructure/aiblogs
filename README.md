@@ -58,7 +58,7 @@ roundup can come from `newsletter@<domain>`. Brevo gives you DNS records to add 
 
 Each domain already has a live site. Nothing is uploaded until a site sets `upload: true`.
 
-The simplest setup is one secret, `HOSTINGER_API_TOKEN` (hPanel > profile menu > API), instead
+The simplest setup is one secret, `HOSTINGERAPITOKEN` (hPanel > profile menu > API), instead
 of FTP secrets per site. `scripts/hostinger.py` uses it to list the account's websites, read a
 site's files and upload single files. Actions > **Back up live sites** lists the websites, then
 (only while the repo is private) saves every site's text files as a 30-day artifact.
