@@ -14,7 +14,12 @@ jobs:
           for d in defensestocks.org gamingstocks.org capitalraising.org beforethebreakout.com; do
             mkdir -p "scan/$d"
             (cd "scan/$d" && wget -q -e robots=off --timeout=20 --tries=2 -p -H -nd -k --max-redirect=3 "https://$d/" "https://$d/blog.html" "https://$d/archive.html" || true)
+            for f in posts.json daily-articles.json cache/_meta.json articles.json news.json data.json; do
+              curl -sfL --max-time 20 "https://$d/$f" -o "scan/$d/$(echo $f | tr / _)" || true
+            done
           done
+          # artifact names can't contain ? : * etc.
+          find scan -type f | while read -r f; do n=$(echo "$f" | sed 's/[?:*"<>|]/_/g'); [ "$f" = "$n" ] || mv "$f" "$n"; done
       - name: Report
         run: |
           {
@@ -33,6 +38,10 @@ jobs:
             grep -rhoE 'https?://[a-zA-Z0-9.-]+\.[a-z]{2,}' "$d" | sed -E 's#https?://##' | sort | uniq -c | sort -rn | head -40
             echo "--- email/payment providers"
             grep -rhoiE 'mailchimp|list-manage|convertkit|kit\.com|beehiiv|substack|brevo|sendinblue|sibforms|mailerlite|hostinger|reach\.|formspree|getform|web3forms|emailjs|supabase|firebase|airtable|google\.com/macros|script\.google|stripe|gumroad|lemonsqueezy|paypal|make\.com|hook\.[a-z0-9]+\.make|zapier|n8n' "$d" | tr 'A-Z' 'a-z' | sort | uniq -c | sort -rn
+            echo "--- context"
+            grep -rhoiE '.{0,90}(n8n|make\.com|hook\.[a-z0-9]+\.make|mailchimp|hostinger|emailjs|formsubmit|subscribe\.php|stripe|reach\.hostinger).{0,90}' "$d" --include='*.html' --include='*.js' --include='*.json' | head -30
+            echo "--- json data files"
+            for j in "$d"*.json; do [ -f "$j" ] || continue; echo ">> $(basename "$j") ($(wc -c < "$j") bytes)"; head -c 1500 "$j"; echo; done
             echo '```'
           done
           } | tee -a "$GITHUB_STEP_SUMMARY"
