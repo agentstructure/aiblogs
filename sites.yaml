@@ -1,4 +1,5 @@
 # One entry per blog. `key` is used in secret names (FTP_HOST_<KEY>, FTP_USER_<KEY>, FTP_PASS_<KEY>).
+# `upload: true` lets the deploy workflow push the built site to ftp_dir on Hostinger.
 # `pillars` rotate day by day so each blog covers a balanced mix of topics.
 
 beforethebreakout:
@@ -19,6 +20,7 @@ beforethebreakout:
     - Small and mid cap names under the radar with improving fundamentals and constructive charts
     - Weekly market structure, indexes, breadth and what it means for breakout odds
   ftp_dir: public_html/
+  upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 capitalraising:
   key: CAPITALRAISING
@@ -38,6 +40,7 @@ capitalraising:
     - Debt, venture debt, revenue-based financing and alternative capital options
     - Crowdfunding and retail investor platforms, results and lessons from recent campaigns
   ftp_dir: public_html/
+  upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 defensestocks:
   key: DEFENSESTOCKS
@@ -57,6 +60,7 @@ defensestocks:
     - European and allied defense stocks and the rearmament spending cycle
     - Defense ETFs, valuation comparisons and portfolio angles
   ftp_dir: public_html/
+  upload: false  # the domain already has a live site; don't overwrite it until Sean decides
 
 gamingstocks:
   key: GAMINGSTOCKS
@@ -76,3 +80,4 @@ gamingstocks:
     - Esports, streaming and gaming engagement data and the listed companies involved
     - M&A, deals and consolidation across gaming
   ftp_dir: public_html/
+  upload: false  # the domain already has a live site; don't overwrite it until Sean decides

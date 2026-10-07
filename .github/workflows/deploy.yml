@@ -21,7 +21,7 @@ jobs:
       - id: m
         run: |
           pip install --quiet pyyaml
-          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"dir":v.get("ftp_dir","public_html/")} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
+          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"dir":v.get("ftp_dir","public_html/"),"upload":bool(v.get("upload",False))} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: sites
@@ -51,7 +51,10 @@ jobs:
       - name: Check FTP secrets
         id: ftp
         run: |
-          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
+          if [ "${{ matrix.site.upload }}" != "true" ]; then
+            echo "::notice title=${{ matrix.site.slug }}::Uploads are off for this site (upload: false in sites.yaml), so nothing was sent to Hostinger."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          elif [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
             echo "::warning title=${{ matrix.site.slug }}::FTP secrets FTP_HOST_${{ matrix.site.key }} / FTP_USER_${{ matrix.site.key }} / FTP_PASS_${{ matrix.site.key }} are not set, so the site was built but not uploaded."
             echo "ready=false" >> "$GITHUB_OUTPUT"
           else
