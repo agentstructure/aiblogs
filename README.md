@@ -54,12 +54,14 @@ roundup can come from `newsletter@<domain>`. Brevo gives you DNS records to add 
 (`public_html/` by default). Change it if a site's FTP account opens somewhere else, e.g.
 `domains/example.com/public_html/`.
 
-### Existing sites
+### Existing sites and the Hostinger API
 
-Each domain already has a live site, so the blog lives at `<domain>/blog/` (`base_path` and
-`ftp_dir` in `sites.yaml`) and never touches the existing pages. Uploads stay off until a site
-sets `upload: true`. Before turning one on, run Actions > **Back up live sites** (needs the repo
-to be private) to keep a copy of the current files.
+Each domain already has a live site. Nothing is uploaded until a site sets `upload: true`.
+
+The simplest setup is one secret, `HOSTINGER_API_TOKEN` (hPanel > profile menu > API), instead
+of FTP secrets per site. `scripts/hostinger.py` uses it to list the account's websites, read a
+site's files and upload single files. Actions > **Back up live sites** lists the websites, then
+(only while the repo is private) saves every site's text files as a 30-day artifact.
 
 ### First run
 

@@ -1,54 +1,56 @@
 name: Back up live sites
 
-# Downloads each site's current files from Hostinger (read only) and keeps them as a
-# workflow artifact for 30 days. Run it before turning uploads on for a site.
+# Reads each site's current files through the Hostinger API (read only, needs the
+# HOSTINGER_API_TOKEN secret) and keeps them as a workflow artifact for 30 days.
+# Run it before anything is published to a site.
 on:
   workflow_dispatch:
 
 jobs:
-  sites:
+  inventory:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
+    env:
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
     steps:
       - uses: actions/checkout@v5
       - id: m
         run: |
           pip install --quiet pyyaml
-          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"key":v["key"],"root":v.get("site_root","public_html/")} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
+          echo "matrix=$(python3 -c 'import json,yaml; s=yaml.safe_load(open("sites.yaml")); print(json.dumps([{"slug":k,"domain":v["domain"]} for k,v in s.items()]))')" >> "$GITHUB_OUTPUT"
+      - name: List websites on the Hostinger account
+        run: |
+          if [ -z "$HOSTINGER_API_TOKEN" ]; then
+            echo "::error::Add the HOSTINGER_API_TOKEN secret (hPanel > profile > API) first."
+            exit 1
+          fi
+          python3 scripts/hostinger.py inventory
 
   backup:
-    needs: sites
+    needs: inventory
     # site files can include config with passwords; never publish them from a public repo
     if: ${{ github.event.repository.private }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        site: ${{ fromJSON(needs.sites.outputs.matrix) }}
+        site: ${{ fromJSON(needs.inventory.outputs.matrix) }}
     name: backup ${{ matrix.site.slug }}
     env:
-      FTP_HOST: ${{ secrets[format('FTP_HOST_{0}', matrix.site.key)] }}
-      FTP_USER: ${{ secrets[format('FTP_USER_{0}', matrix.site.key)] }}
-      FTP_PASS: ${{ secrets[format('FTP_PASS_{0}', matrix.site.key)] }}
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
     steps:
-      - name: Download site files
-        run: |
-          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASS" ]; then
-            echo "::error title=${{ matrix.site.slug }}::FTP secrets for ${{ matrix.site.key }} are not set."
-            exit 1
-          fi
-          sudo apt-get install -y -qq lftp > /dev/null
-          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_HOST" -e "set ftp:ssl-allow no; mirror --parallel=4 ${{ matrix.site.root }} backup/${{ matrix.site.slug }}; quit"
-          echo "Downloaded $(find backup -type f | wc -l) files"
+      - uses: actions/checkout@v5
+      - run: python3 scripts/hostinger.py backup ${{ matrix.site.domain }} backup/${{ matrix.site.slug }}
       - uses: actions/upload-artifact@v5
         with:
           name: backup-${{ matrix.site.slug }}
           path: backup/
+          include-hidden-files: true
           retention-days: 30
 
   public-repo:
-    needs: sites
+    needs: inventory
     if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-latest
     steps:
