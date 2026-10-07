@@ -26,7 +26,9 @@ API = "https://developers.hostinger.com"
 def _request(method: str, url: str, *, body: bytes | None = None, headers: dict | None = None,
              retries: int = 4) -> tuple[int, dict, bytes]:
     for attempt in range(retries + 1):
-        req = urllib.request.Request(url, data=body, method=method, headers=headers or {})
+        # Cloudflare in front of the API blocks Python's default user agent (error 1010)
+        headers = {"User-Agent": "aiblogs/1.0 (+https://github.com/agentstructure/aiblogs)", **(headers or {})}
+        req = urllib.request.Request(url, data=body, method=method, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 return r.status, dict(r.headers), r.read()
