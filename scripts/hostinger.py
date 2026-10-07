@@ -213,6 +213,15 @@ def cmd_inspect(h: Hostinger, domain: str):
                 print(f"(not readable: {err})")
 
 
+def cmd_grep(h: Hostinger, domain: str, path: str, pattern: str):
+    """Lines of one file matching a regex, redacted, with line numbers."""
+    rx = re.compile(pattern, re.I)
+    text = h.read_file(h.username_for(domain), domain, path)
+    for n, line in enumerate(text.splitlines(), 1):
+        if rx.search(line):
+            print(f"{n:>5}: {redact(line.strip())[:400]}")
+
+
 def cmd_upload(h: Hostinger, domain: str, local: str, remote: str):
     h.upload(h.username_for(domain), domain, Path(local).read_bytes(), remote)
     print(f"uploaded {remote} to {domain}")
@@ -223,7 +232,7 @@ def main(argv: list[str]):
         raise SystemExit(__doc__)
     h = Hostinger()
     cmd, args = argv[0], argv[1:]
-    {"inventory": cmd_inventory, "backup": cmd_backup, "upload": cmd_upload, "inspect": cmd_inspect}[cmd](h, *args)
+    {"inventory": cmd_inventory, "backup": cmd_backup, "upload": cmd_upload, "inspect": cmd_inspect, "grep": cmd_grep}[cmd](h, *args)
 
 
 if __name__ == "__main__":

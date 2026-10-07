@@ -2,8 +2,19 @@ name: Inspect live sites
 
 # Read only. Lists each site's files and prints its PHP code with anything that looks like a
 # password, key or email address redacted, so the posting endpoints can be matched.
+# With "path" set, prints only that file's lines matching "pattern" (also redacted).
 on:
   workflow_dispatch:
+    inputs:
+      domain:
+        description: "Only this site (blank = all four)"
+        default: ""
+      path:
+        description: "File to search (blank = full inspect)"
+        default: ""
+      pattern:
+        description: "Regex for lines to print"
+        default: "fetch|\\.json|publish|blog-articles"
 
 jobs:
   inspect:
@@ -16,6 +27,15 @@ jobs:
         domain: [defensestocks.org, capitalraising.org, gamingstocks.org, beforethebreakout.net]
     env:
       HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
+      ONLY: ${{ inputs.domain }}
+      FILE: ${{ inputs.path }}
+      PATTERN: ${{ inputs.pattern }}
     steps:
       - uses: actions/checkout@v5
-      - run: python3 scripts/hostinger.py inspect ${{ matrix.domain }}
+      - run: |
+          if [ -n "$ONLY" ] && [ "$ONLY" != "${{ matrix.domain }}" ]; then echo "skipped"; exit 0; fi
+          if [ -n "$FILE" ]; then
+            python3 scripts/hostinger.py grep ${{ matrix.domain }} "$FILE" "$PATTERN"
+          else
+            python3 scripts/hostinger.py inspect ${{ matrix.domain }}
+          fi
