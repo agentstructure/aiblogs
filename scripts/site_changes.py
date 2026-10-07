@@ -4,6 +4,14 @@
   python scripts/site_changes.py gamingstocks-blog   # show published posts on gamingstocks' blog
   python scripts/site_changes.py check               # HTTP status of the pages that matter
 
+Fixes from the 2026-10-07 site check that Sean approved ("Fix all"):
+  fix-gs-subscribe    gamingstocks: subscribe.php had a PHP parse error, so every signup failed
+  fix-gs-home         gamingstocks: homepage signup script crashed when a form was missing
+  fix-gs-placeholders gamingstocks: blog shows only real posts, not the 12 sample cards
+  fix-cr-quotes       capitalraising: article pages saved with \\" instead of "
+  fix-ds-sec          defensestocks: SEC filings box fetches through sec-proxy.php (SEC blocks browsers)
+  check-signups       POST an invalid address to every signup endpoint (expect 400/422)
+
 Every step keeps a dated copy of any file it changes next to the original, and is safe to re-run.
 """
 
@@ -32,32 +40,45 @@ HTACCESS_BLOCK = """
 """
 
 GS_MARKER = "<!-- aiblogs: published posts -->"
-GS_SCRIPT = GS_MARKER + """
+GS_MARKER_V2 = "<!-- aiblogs: published posts v2 -->"
+GS_SCRIPT = GS_MARKER_V2 + """
 <script>
-// Adds the posts sent to publish.php to the research grid and opens them on post.php.
+// Shows only the posts sent to publish.php (the sample news and research cards are hidden)
+// and opens them on post.php.
 (function () {
   if (typeof researchArticles === 'undefined' || typeof renderArticles !== 'function') return;
   var tmp = document.createElement('textarea');
   function decode(s) { tmp.innerHTML = s || ''; return tmp.value; }
+  var news = document.getElementById('newsContainer');
+  var newsSection = news && news.closest('.news-section');
+  if (newsSection) newsSection.style.display = 'none';
+  document.querySelectorAll('[onclick*="filterCategory"]').forEach(function (b) {
+    if (b.parentElement) b.parentElement.style.display = 'none';
+  });
+  researchArticles.length = 0;
+  renderArticles();
+  var grid = document.getElementById('articlesContainer');
+  if (grid) grid.innerHTML = '<p style="opacity:.7">Loading research...</p>';
   fetch('/publish.php', {cache: 'no-store'}).then(function (r) { return r.json(); }).then(function (d) {
     var posts = (d && d.articles) || [];
-    posts.slice().reverse().forEach(function (a) {
-      researchArticles.unshift({
+    posts.forEach(function (a) {
+      researchArticles.push({
         title: decode(a.title).replace(/'/g, '\\u2019').replace(/"/g, '\\u201d'),
         description: decode(a.excerpt),
         date: String(a.published_at || '').slice(0, 10),
         category: 'latest', icon: '\\ud83d\\udcf0', slug: a.slug
       });
     });
-    if (posts.length) renderArticles();
-  }).catch(function () {});
-  var original = window.openArticle;
+    renderArticles();
+    if (!posts.length && grid) grid.innerHTML = '<p style="opacity:.7">New research is on the way.</p>';
+  }).catch(function () {
+    if (grid) grid.innerHTML = '<p style="opacity:.7">New research is on the way.</p>';
+  });
   window.openArticle = function (title) {
     for (var i = 0; i < researchArticles.length; i++) {
       var a = researchArticles[i];
       if (a.slug && a.title === title) { location.href = '/post.php?slug=' + encodeURIComponent(a.slug); return; }
     }
-    if (original) original(title);
   };
 })();
 </script>
@@ -147,15 +168,131 @@ def gamingstocks_blog(h: Hostinger):
     h.upload(user, domain, POST_PHP.encode(), "post.php")
     print("gamingstocks: post.php uploaded")
     blog = h.read_file(user, domain, "blog.html")
-    if GS_MARKER in blog:
+    if GS_MARKER_V2 in blog:
         print("gamingstocks: blog.html already shows published posts")
         return
     if "</body>" not in blog or "researchArticles" not in blog:
         raise SystemExit("gamingstocks: blog.html is not shaped as expected; left unchanged")
-    h.upload(user, domain, blog.encode(), f"blog.backup-{STAMP}.html")
+    backup = f"blog.backup-{STAMP}{'b' if GS_MARKER in blog else ''}.html"
+    h.upload(user, domain, blog.encode(), backup)
+    if GS_MARKER in blog:  # replace the first version of the script
+        a = blog.index(GS_MARKER)
+        b = blog.index("</script>", a) + len("</script>")
+        blog = blog[:a].rstrip("\n") + "\n" + blog[b:].lstrip("\n")
     i = blog.rfind("</body>")
     h.upload(user, domain, (blog[:i] + GS_SCRIPT + blog[i:]).encode(), "blog.html")
-    print("gamingstocks: blog.html now lists published posts (backup saved as blog.backup-%s.html)" % STAMP)
+    print(f"gamingstocks: blog.html now lists only published posts (backup saved as {backup})")
+
+
+def fix_gs_placeholders(h: Hostinger):
+    gamingstocks_blog(h)
+
+
+def replace_once(h: Hostinger, domain: str, path: str, old: str, new: str, backup: str, done_if: str) -> None:
+    user = h.username_for(domain)
+    text = h.read_file(user, domain, path)
+    if done_if in text:
+        print(f"{domain}/{path}: already fixed")
+        return
+    if text.count(old) != 1:
+        raise SystemExit(f"{domain}/{path}: expected the text to fix once, found {text.count(old)}; left unchanged")
+    h.upload(user, domain, text.encode(), backup)
+    h.upload(user, domain, text.replace(old, new).encode(), path)
+    print(f"{domain}/{path}: fixed (backup saved as {backup})")
+
+
+def fix_gs_subscribe(h: Hostinger):
+    # A ternary inside a heredoc is a PHP parse error, so subscribe.php answered every request with HTTP 500.
+    user = h.username_for("gamingstocks.org")
+    text = h.read_file(user, "gamingstocks.org", "subscribe.php")
+    if "$greetName" in text:
+        print("gamingstocks.org/subscribe.php: already fixed")
+        return
+    bad = "Hello{$name ? ' ' . htmlspecialchars($name) : ''}!"
+    head = "function sendWelcomeEmail($email, $name) {"
+    if text.count(bad) != 1 or text.count(head) != 1:
+        raise SystemExit("gamingstocks.org/subscribe.php: not shaped as expected; left unchanged")
+    h.upload(user, "gamingstocks.org", text.encode(), f"subscribe.backup-{STAMP}.php")
+    text = text.replace(bad, "Hello{$greetName}!").replace(
+        head, head + "\n    $greetName = $name ? ' ' . htmlspecialchars($name) : '';")
+    h.upload(user, "gamingstocks.org", text.encode(), "subscribe.php")
+    print(f"gamingstocks.org/subscribe.php: fixed (backup saved as subscribe.backup-{STAMP}.php)")
+
+
+def fix_gs_home(h: Hostinger):
+    # handleEmailSubmit('ctaForm', ...) runs on a page without that form and crashed the script.
+    replace_once(h, "gamingstocks.org", "index.html",
+                 "const btn = document.getElementById(btnId);",
+                 "const btn = document.getElementById(btnId);\n            if (!form || !btn) return;",
+                 f"index.backup-{STAMP}.html", "if (!form || !btn) return;")
+
+
+def fix_cr_quotes(h: Hostinger):
+    domain = "capitalraising.org"
+    user = h.username_for(domain)
+    pages = [e["path"] for e in h.list_files(user, domain, "articles")
+             if e["type"] == "file" and e["path"].endswith(".html") and ".backup-" not in e["path"]]
+    fixed = 0
+    for path in pages:
+        text = h.read_file(user, domain, path)
+        if '\\"' not in text:
+            continue
+        h.upload(user, domain, text.encode(), path.replace(".html", f".backup-{STAMP}.html.txt"))
+        h.upload(user, domain, text.replace('\\"', '"').encode(), path)
+        fixed += 1
+        print(f"capitalraising: fixed {path} ({text.count(chr(92) + chr(34))} escaped quotes)")
+    print(f"capitalraising: {len(pages)} article pages checked, {fixed} fixed")
+
+
+SEC_PROXY_PHP = r"""<?php
+// aiblogs: SEC EDGAR blocks browser requests (no CORS), so the filings box asks this page instead.
+// Returns https://data.sec.gov/submissions/CIK##########.json, cached for an hour.
+header('Content-Type: application/json');
+header('Cache-Control: public, max-age=900');
+$cik = str_pad(substr(preg_replace('/\D/', '', $_GET['cik'] ?? ''), 0, 10), 10, '0', STR_PAD_LEFT);
+if ($cik === '0000000000') { http_response_code(400); echo '{"error":"cik required"}'; exit; }
+$cacheDir = sys_get_temp_dir() . '/sec-cache';
+@mkdir($cacheDir, 0700, true);
+$cache = "$cacheDir/$cik.json";
+if (is_file($cache) && time() - filemtime($cache) < 3600) { readfile($cache); exit; }
+$url = "https://data.sec.gov/submissions/CIK$cik.json";
+$ua = 'DefenseStocks.org admin@defensestocks.org';
+$body = false; $code = 0;
+if (function_exists('curl_init')) {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 20, CURLOPT_ENCODING => '',
+                            CURLOPT_HTTPHEADER => ["User-Agent: $ua", 'Accept: application/json']]);
+    $body = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+} else {
+    $body = @file_get_contents($url, false, stream_context_create(['http' => ['header' => "User-Agent: $ua\r\n", 'timeout' => 20]]));
+    $code = $body === false ? 502 : 200;
+}
+if ($body === false || $code !== 200) { http_response_code($code ?: 502); echo '{"error":"SEC unavailable"}'; exit; }
+@file_put_contents($cache, $body);
+echo $body;
+"""
+
+
+def fix_ds_sec(h: Hostinger):
+    domain = "defensestocks.org"
+    user = h.username_for(domain)
+    h.upload(user, domain, SEC_PROXY_PHP.encode(), "sec-proxy.php")
+    print("defensestocks: sec-proxy.php uploaded")
+    text = h.read_file(user, domain, "index.html")
+    old = "https://data.sec.gov/submissions/CIK"
+    if old not in text:
+        print("defensestocks/index.html: already uses sec-proxy.php" if "sec-proxy.php" in text
+              else "defensestocks/index.html: SEC URL not found; left unchanged")
+        return
+    h.upload(user, domain, text.encode(), f"index.backup-{STAMP}.html")
+    text = text.replace(old, "/sec-proxy.php?cik=")
+    h.upload(user, domain, text.encode(), "index.html")
+    for n, line in enumerate(text.splitlines(), 1):
+        if "sec-proxy.php" in line or "data.sec.gov" in line:
+            print(f"  {n}: {line.strip()[:200]}")
+    print(f"defensestocks: index.html now fetches filings through sec-proxy.php (backup saved as index.backup-{STAMP}.html)")
 
 
 def status(url: str) -> int:
@@ -165,6 +302,22 @@ def status(url: str) -> int:
             return r.status
     except urllib.error.HTTPError as e:
         return e.code
+
+
+def check_signups(_h=None):
+    for url in ["https://gamingstocks.org/subscribe.php", "https://defensestocks.org/subscribers-api.php",
+                "https://capitalraising.org/subscribe.php", "https://beforethebreakout.net/subscribers-api.php",
+                "https://beforethebreakout.net/api/subscribe.php"]:
+        req = urllib.request.Request(url, data=b'{"email":"not-an-email"}', method="POST",
+                                     headers={"User-Agent": UA, "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                code = r.status
+        except urllib.error.HTTPError as e:
+            code = e.code
+        print(f"{code}  POST {url}  ({'ok' if code in (400, 422) else 'CHECK'})")
+    sec = "https://defensestocks.org/sec-proxy.php?cik=0000936468"  # Lockheed Martin
+    print(f"{status(sec)}  {sec}")
 
 
 def check(_h=None):
@@ -177,6 +330,9 @@ def check(_h=None):
 
 
 if __name__ == "__main__":
-    steps = {"block-subscribers": block_subscribers, "gamingstocks-blog": gamingstocks_blog, "check": check}
+    steps = {"block-subscribers": block_subscribers, "gamingstocks-blog": gamingstocks_blog, "check": check,
+             "fix-gs-subscribe": fix_gs_subscribe, "fix-gs-home": fix_gs_home,
+             "fix-gs-placeholders": fix_gs_placeholders, "fix-cr-quotes": fix_cr_quotes,
+             "fix-ds-sec": fix_ds_sec, "check-signups": check_signups}
     for name in sys.argv[1:] or ["check"]:
-        steps[name](Hostinger() if name != "check" else None)
+        steps[name](Hostinger() if not name.startswith("check") else None)
