@@ -1,0 +1,47 @@
+name: Publish posts
+
+# Sends each new post in content/<site>/ to that site's own publishing endpoint (the one Make
+# used), then records it in published/<site>.json so it is never sent twice.
+# Sean approved publishing to all four live sites on 2026-10-07.
+on:
+  push:
+    branches: [main]
+    paths: ["content/**", "scripts/publish.py"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only show what would be sent"
+        type: boolean
+        default: false
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    # endpoint keys are read at run time; keep these logs private
+    if: ${{ github.event.repository.private }}
+    runs-on: ubuntu-latest
+    env:
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet -r requirements.txt
+      - name: Publish new posts
+        run: python scripts/publish.py ${{ inputs.dry_run && '--dry-run' || '' }}
+      - name: Record what was published
+        if: always()
+        run: |
+          git add published/ 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "aiblogs publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -m "Record published posts"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done

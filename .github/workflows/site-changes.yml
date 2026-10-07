@@ -1,0 +1,20 @@
+name: Apply site changes
+
+# One-time changes Sean approved on 2026-10-07: hide defensestocks' subscriber list and
+# make gamingstocks' blog show published posts. Each step saves a dated backup first.
+on:
+  workflow_dispatch:
+    inputs:
+      steps:
+        description: "Steps to run"
+        default: "check block-subscribers gamingstocks-blog check"
+
+jobs:
+  apply:
+    if: ${{ github.event.repository.private }}
+    runs-on: ubuntu-latest
+    env:
+      HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 scripts/site_changes.py ${{ inputs.steps }}
