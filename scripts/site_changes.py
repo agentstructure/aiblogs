@@ -230,8 +230,9 @@ def fix_gs_home(h: Hostinger):
 def fix_cr_quotes(h: Hostinger):
     domain = "capitalraising.org"
     user = h.username_for(domain)
-    pages = [e["path"] for e in h.list_files(user, domain, "articles")
-             if e["type"] == "file" and e["path"].endswith(".html") and ".backup-" not in e["path"]]
+    pages = [e["path"].lstrip("/") for e in h.list_files(user, domain)
+             if e["type"] == "file" and e["path"].lstrip("/").startswith("articles/")
+             and e["path"].endswith(".html") and ".backup-" not in e["path"]]
     fixed = 0
     for path in pages:
         text = h.read_file(user, domain, path)
