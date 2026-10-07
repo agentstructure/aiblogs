@@ -1,0 +1,20 @@
+name: Check live sites
+
+# Read only: crawls every page of the four sites, checks links, clicks buttons and sends an
+# invalid address to each signup endpoint. The report is printed in the log and job summary.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 13 * * *"  # daily, after the morning posts
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright@1 && npx playwright install --with-deps chromium
+      - run: node scripts/sitecheck.mjs | tee report.md >> "$GITHUB_STEP_SUMMARY"
+      - run: cat report.md
