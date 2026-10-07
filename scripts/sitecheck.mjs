@@ -50,8 +50,9 @@ async function checkSite(browser, start) {
     for (let attempt = 0; attempt < 3; attempt++) {
       errs.length = 0;
       try {
-        const resp = await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+        const resp = await page.goto(url, { waitUntil: 'load', timeout: 45000 });
         code = resp?.status();
+        await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});  // live widgets keep polling
       } catch (e) { code = `load failed: ${e.message.split('\n')[0].slice(0, 100)}`; }
       if (code !== 429) break;
       await sleep(60000);
