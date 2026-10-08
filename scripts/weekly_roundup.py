@@ -10,13 +10,31 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
 import os
 import sys
+import urllib.parse
 
 import markdown
 
 from build import env
 from common import ROOT, get_site, load_posts, load_sites
+
+
+def live_url(slug: str, site: dict, post) -> str:
+    """Where the post lives on the site, from what its endpoint answered (published/<site>.json)."""
+    home = f"https://{site.get('hosting_domain') or site['domain']}"
+    log_file = ROOT / "published" / f"{slug}.json"
+    result = (json.loads(log_file.read_text()) if log_file.exists() else {}).get(post.slug, {}).get("result", "")
+    if result.startswith("http"):
+        url = result                                                    # capitalraising: full URL
+    elif slug == "gamingstocks" and result:
+        url = f"{home}/post.php?slug={urllib.parse.quote(result.rsplit('/', 1)[-1])}"
+    elif slug == "beforethebreakout" and result:
+        url = f"{home}/daily-article.php?slug={urllib.parse.quote(result)}"
+    else:
+        url = f"{home}/blog.html"                                       # defensestocks lists posts on one page
+    return url + ("&" if "?" in url else "?") + "utm_source=newsletter&utm_medium=email&utm_campaign=weekly"
 
 
 def load_intro(site: dict, slug: str, posts, today: dt.date) -> str:
@@ -52,6 +70,8 @@ def main() -> int:
             print(f"[{slug}] no posts since {since}, skipping")
             continue
         posts.sort(key=lambda p: p.date)
+        links = {p.slug: live_url(slug, site, p) for p in posts}
+        home = f"https://{site.get('hosting_domain') or site['domain']}/"
         try:
             intro = load_intro(site, slug, posts, today)
             week_label = f"{posts[0].date:%b %-d} to {posts[-1].date:%b %-d, %Y}"
@@ -59,7 +79,7 @@ def main() -> int:
             if len(posts) > 1:
                 subject += f" + {len(posts) - 1} more"
             html = env.get_template("email.html").render(
-                site=site, posts=posts, subject=subject, week_label=week_label,
+                site=site, posts=posts, links=links, home=home, subject=subject, week_label=week_label,
                 intro_html=markdown.markdown(intro))
 
             if args.dry_run:
@@ -75,7 +95,7 @@ def main() -> int:
                 preview=intro[:140],
                 html=html,
                 sender_name=site["name"],
-                sender_email=site.get("sender_email") or os.environ.get("SENDER_EMAIL") or f"newsletter@{site['domain']}",
+                sender_email=site.get("sender_email") or os.environ.get("SENDER_EMAIL") or "support@agentstructure.ai",
                 list_id=brevo.ensure_list(site),
             )
             print(f"[{slug}] sent campaign {campaign_id}: {subject!r} ({len(posts)} posts)")
