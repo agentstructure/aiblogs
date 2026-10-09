@@ -1,0 +1,50 @@
+name: Share one post
+
+# Posts a single message, optionally with a video, to chosen Buffer networks 5 minutes from
+# now. "describe" only prints Buffer's input types (used to check what a network needs).
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "Post text"
+        default: ""
+      video_url:
+        description: "Public video URL (optional)"
+        default: ""
+      title:
+        description: "Video title (YouTube)"
+        default: ""
+      services:
+        description: "Networks, comma separated (twitter,linkedin,youtube); empty = all"
+        default: ""
+      metadata:
+        description: 'Per-network JSON, e.g. {"youtube": {"title": "$title"}}'
+        default: "{}"
+      describe:
+        description: "Instead of posting, print these Buffer types (space separated)"
+        default: ""
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    env:
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      TEXT: ${{ inputs.text }}
+      VIDEO: ${{ inputs.video_url }}
+      TITLE: ${{ inputs.title }}
+      SERVICES: ${{ inputs.services }}
+      METADATA: ${{ inputs.metadata }}
+      DESCRIBE: ${{ inputs.describe }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet -r requirements.txt
+      - name: Share
+        run: |
+          if [ -n "$DESCRIBE" ]; then
+            python scripts/social.py --describe $DESCRIBE
+          else
+            python scripts/social.py --once "$TEXT" --video "$VIDEO" --title "$TITLE" --services "$SERVICES" --metadata "$METADATA"
+          fi

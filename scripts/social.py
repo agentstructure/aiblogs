@@ -179,6 +179,54 @@ def direct_accounts() -> list[tuple[dict, object]]:
     return out
 
 
+INTROSPECT = """query($n: String!) { __type(name: $n) { name kind inputFields { name type { kind name ofType
+  { kind name ofType { kind name } } } } enumValues { name } } }"""
+
+
+def describe(buffer: Buffer, names: list[str]) -> None:
+    """Print Buffer input types, e.g. PostInputMetaData, to see what a network needs."""
+    for n in names:
+        t = buffer.query(INTROSPECT, {"n": n})["__type"]
+        if not t:
+            print(f"{n}: not found")
+            continue
+        print(f"{n} ({t['kind']}):")
+        for f in t.get("inputFields") or []:
+            ty, label = f["type"], ""
+            while ty:
+                label += "!" if ty["kind"] == "NON_NULL" else ("[]" if ty["kind"] == "LIST" else ty["name"] or "")
+                ty = ty.get("ofType")
+            print(f"  {f['name']}: {label}")
+        for v in t.get("enumValues") or []:
+            print(f"  = {v['name']}")
+
+
+def share_once(buffer: Buffer, text: str, video: str, title: str, services: list[str], metadata: dict) -> int:
+    """Post one message (optionally with a video) to the named Buffer networks, 5 minutes from now."""
+    due = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=5)
+    failed = 0
+    for c in buffer.channels():
+        if services and c["service"].lower() not in services:
+            continue
+        inp = {"channelId": c["id"], "text": text, "schedulingType": "automatic", "mode": "customScheduled",
+               "dueAt": due.isoformat(timespec="seconds").replace("+00:00", "Z")}
+        if video:
+            inp["assets"] = [{"video": {"url": video}}]
+        meta = metadata.get(c["service"].lower())
+        if meta:
+            inp["metadata"] = {c["service"].lower(): {k: (title if v == "$title" else v) for k, v in meta.items()}}
+        data = buffer.query(
+            "mutation($input: CreatePostInput!) { createPost(input: $input) {"
+            " ... on PostActionSuccess { post { id dueAt } } ... on MutationError { message } } }", {"input": inp})
+        res = data["createPost"]
+        if "post" in res:
+            print(f"{c['service']} {c.get('displayName') or c['name']}: scheduled {res['post']['id']} for {res['post']['dueAt']}")
+        else:
+            failed = 1
+            print(f"::error title={c['service']}::{res.get('message')}")
+    return failed
+
+
 def sites_for(channel: dict, mapping: dict[str, list[str]]) -> list[str]:
     names = {str(channel.get(k) or "").lower().lstrip("@") for k in ("name", "displayName", "service")}
     specific = [s for key, sites in mapping.items() if key != "*" and key.lower().lstrip("@") in names
@@ -212,7 +260,22 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--channels", action="store_true")
+    ap.add_argument("--describe", nargs="+", metavar="TYPE", help="print Buffer input types")
+    ap.add_argument("--once", metavar="TEXT", help="post this text once instead of the daily posts")
+    ap.add_argument("--video", default="", help="public video URL for --once")
+    ap.add_argument("--title", default="", help="video title for --once (YouTube)")
+    ap.add_argument("--services", default="", help="comma list for --once, e.g. twitter,linkedin,youtube")
+    ap.add_argument("--metadata", default="{}", help='JSON per network for --once; "$title" is replaced')
     args = ap.parse_args()
+    if args.describe or args.once:
+        key = os.environ.get("BUFFER_API_KEY", "").strip()
+        if not key:
+            raise SystemExit("BUFFER_API_KEY is not set")
+        if args.describe:
+            describe(Buffer(key), args.describe)
+            return 0
+        services = [x.strip().lower() for x in args.services.split(",") if x.strip()]
+        return share_once(Buffer(key), args.once, args.video, args.title, services, json.loads(args.metadata))
 
     channels, buffer = [], None
     key = os.environ.get("BUFFER_API_KEY", "").strip()
