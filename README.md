@@ -32,7 +32,11 @@ weekly email roundup for subscribers.
   goes live): schedules a short post with the article link on every account connected in
   [Buffer](https://buffer.com), spread through the day (`social.yaml` says which accounts get
   which blog and when). The blurb is the `social` line the routine writes with each article.
-  Needs the `BUFFER_API_KEY` secret (Buffer > Settings > API); without it this step is skipped.
+  Needs the `BUFFER_API_KEY` secret (Buffer > Settings > API). Bluesky is posted to directly,
+  without Buffer, using the `BLUESKY_APP_PASSWORD` secret (Bluesky > Settings > Privacy and
+  security > App passwords) for `agentstructure.bsky.social`. The **Share on social media**
+  workflow runs every 30 minutes to post Bluesky items when their slot comes. Without either
+  secret, that account is skipped.
 
 If one site's upload fails, the others still publish, and the run is marked failed so GitHub
 emails you.

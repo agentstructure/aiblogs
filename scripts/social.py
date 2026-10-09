@@ -8,7 +8,11 @@ to that site, then recorded there so it is never shared twice.
   python scripts/social.py --dry-run   # show the posts without sending them
   python scripts/social.py --channels  # list the connected Buffer channels
 
-Needs BUFFER_API_KEY (Buffer > Settings > API). Without it this prints a notice and exits.
+Accounts: everything connected in Buffer (BUFFER_API_KEY, from Buffer > Settings > API), plus
+one Bluesky account posted to directly (BLUESKY_HANDLE + BLUESKY_APP_PASSWORD), which keeps a
+Buffer free-plan slot for another network. Buffer holds each post until its slot; Bluesky
+posts go out on the first run after the slot (the Share on social media workflow runs every
+30 minutes). With neither set this prints a notice and exits.
 """
 
 from __future__ import annotations
@@ -78,6 +82,47 @@ class Buffer:
         return res["post"]["id"]
 
 
+class Bluesky:
+    """Posts straight to a Bluesky account (free, no limits) with an app password."""
+    HOST = "https://bsky.social/xrpc"
+
+    def __init__(self, handle: str, password: str):
+        self.handle, self.password, self.session = handle.lstrip("@"), password, None
+
+    @classmethod
+    def from_env(cls) -> "Bluesky | None":
+        handle = os.environ.get("BLUESKY_HANDLE", "").strip()
+        password = os.environ.get("BLUESKY_APP_PASSWORD", "").strip()
+        return cls(handle, password) if handle and password else None
+
+    def call(self, method: str, body: dict, auth: bool = True) -> dict:
+        headers = {"Content-Type": "application/json", "User-Agent": UA}
+        if auth:
+            headers["Authorization"] = f"Bearer {self.login()['accessJwt']}"
+        req = urllib.request.Request(f"{self.HOST}/{method}", method="POST",
+                                     data=json.dumps(body).encode(), headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f"Bluesky HTTP {e.code}: {e.read().decode(errors='replace')[:300]}") from None
+
+    def login(self) -> dict:
+        if not self.session:
+            self.session = self.call("com.atproto.server.createSession",
+                                     {"identifier": self.handle, "password": self.password}, auth=False)
+        return self.session
+
+    def post(self, text: str, url: str, title: str, description: str) -> str:
+        record = {"$type": "app.bsky.feed.post", "text": text,
+                  "createdAt": dt.datetime.now(dt.UTC).isoformat(timespec="seconds").replace("+00:00", "Z"),
+                  "embed": {"$type": "app.bsky.embed.external",
+                            "external": {"uri": url, "title": title, "description": description}}}
+        res = self.call("com.atproto.repo.createRecord",
+                        {"repo": self.login()["did"], "collection": "app.bsky.feed.post", "record": record})
+        return res["uri"]
+
+
 def sites_for(channel: dict, mapping: dict[str, list[str]]) -> list[str]:
     names = {str(channel.get(k) or "").lower().lstrip("@") for k in ("name", "displayName", "service")}
     specific = [s for key, sites in mapping.items() if key != "*" and key.lower().lstrip("@") in names
@@ -90,15 +135,19 @@ def compose(service: str, brand: str | None, blurb: str, url: str) -> str:
     prefix = f"{brand}: " if brand else ""
     if link_len == "host+16":  # Bluesky shows a link as its host plus 16 characters
         link_len = len(urllib.parse.urlsplit(url).hostname or "") + 16
-    room = limit - len(prefix) - 2 - (link_len or len(url))
+    room = limit - len(prefix) - (2 + (link_len or len(url)) if url else 0)
     if len(blurb) > room:
         blurb = blurb[:max(room - 1, 0)].rsplit(" ", 1)[0] + "…"
-    return f"{prefix}{blurb}\n\n{url}"
+    return f"{prefix}{blurb}\n\n{url}" if url else f"{prefix}{blurb}"
+
+
+def slot_time(site_slug: str, slots: dict, now: dt.datetime) -> dt.datetime:
+    hh, mm = map(int, str(slots.get(site_slug, "12:00")).split(":"))
+    return now.astimezone(ET).replace(hour=hh, minute=mm, second=0, microsecond=0)
 
 
 def slot(site_slug: str, slots: dict, now: dt.datetime, index: int) -> dt.datetime:
-    hh, mm = map(int, str(slots.get(site_slug, "12:00")).split(":"))
-    due = now.astimezone(ET).replace(hour=hh, minute=mm, second=0, microsecond=0)
+    due = slot_time(site_slug, slots, now)
     soonest = now + dt.timedelta(minutes=15 + 20 * index)  # Buffer needs a time in the future
     return due if due > soonest else soonest
 
@@ -109,17 +158,20 @@ def main() -> int:
     ap.add_argument("--channels", action="store_true")
     args = ap.parse_args()
 
+    channels, buffer = [], None
     key = os.environ.get("BUFFER_API_KEY", "").strip()
-    if not key:
-        print("::notice title=social::BUFFER_API_KEY is not set, so nothing was shared on social media")
-        return 0
-    buffer = Buffer(key)
-    channels = [c for c in buffer.channels() if not c.get("isQueuePaused")]
+    if key:
+        buffer = Buffer(key)
+        channels += [c for c in buffer.channels() if not c.get("isQueuePaused")]
+    sky = Bluesky.from_env()
+    if sky:
+        channels.append({"id": f"bluesky:{sky.handle}", "name": sky.handle, "service": "bluesky", "direct": True})
     if args.channels or not channels:
         for c in channels:
             print(f"{c['service']}: {c.get('displayName') or c['name']} ({c['id']})")
         if not channels:
-            print("::warning title=social::No active Buffer channels are connected yet")
+            print("::notice title=social::No social accounts are set up (BUFFER_API_KEY or "
+                  "BLUESKY_HANDLE + BLUESKY_APP_PASSWORD), so nothing was shared")
         return 0
 
     config = yaml.safe_load((ROOT / "social.yaml").read_text())
@@ -143,23 +195,35 @@ def main() -> int:
             for c in targets:
                 if c["id"] in log.get(post.slug, {}):
                     continue
+                # Buffer holds a post until its time; direct accounts wait for a later run
+                if c.get("direct") and slot_time(slug, slots, now) > now:
+                    continue
                 brand = site["name"] if len(routes[c["id"]]) > 1 else None
                 url = live_url(slug, site, post, f"utm_source={c['service']}&utm_medium=social&utm_campaign=daily")
-                text = compose(c["service"], brand, post.social or post.description or post.title, url)
+                blurb = post.social or post.description or post.title
                 who = f"{c['service']} {c.get('displayName') or c['name']}"
+                when = "now" if c.get("direct") else f"at {due.astimezone(ET):%H:%M} ET"
+                if c.get("direct"):
+                    text = compose(c["service"], brand, blurb, "")  # the link goes in a preview card
+                else:
+                    text = compose(c["service"], brand, blurb, url)
                 if args.dry_run:
-                    print(f"[{slug}] would share on {who} at {due.astimezone(ET):%H:%M} ET:\n{text}\n")
+                    print(f"[{slug}] would share on {who} {when}:\n{text}\n")
                     continue
                 try:
-                    post_id = buffer.create_post(c["id"], text, due)
+                    if c.get("direct"):
+                        post_id = sky.post(text, url, post.title, post.description)
+                    else:
+                        post_id = buffer.create_post(c["id"], text, due)
                 except RuntimeError as e:
                     failed = True
                     print(f"::error title={slug}::{who}: {e}")
                     continue
                 log.setdefault(post.slug, {})[c["id"]] = {
-                    "service": c["service"], "post_id": post_id, "due": due.isoformat(timespec="minutes")}
+                    "service": c["service"], "post_id": post_id,
+                    "due": (now if c.get("direct") else due).isoformat(timespec="minutes")}
                 log_file.write_text(json.dumps(log, indent=1) + "\n")
-                print(f"[{slug}] scheduled {post.title!r} on {who} for {due.astimezone(ET):%H:%M} ET")
+                print(f"[{slug}] shared {post.title!r} on {who} {when}")
             n += 1
     return 1 if failed else 0
 

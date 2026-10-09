@@ -30,6 +30,8 @@ jobs:
     env:
       HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'agentstructure.bsky.social' }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
