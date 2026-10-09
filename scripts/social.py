@@ -39,6 +39,9 @@ PUBLISHED = ROOT / "published"
 MAX_AGE = dt.timedelta(hours=20)  # one day's posts; Buffer's free plan holds 10 per channel
 ET = ZoneInfo("America/New_York")
 
+# Networks that need a video or image on every post, so the daily text posts skip them.
+MEDIA_ONLY = {"youtube", "tiktok", "instagram", "pinterest"}
+
 # Characters each network allows, and how many a link uses (Buffer's character-limits guide).
 LIMITS = {"telegram": (4000, None), "discord": (1900, None), "bluesky": (300, "host+16"), "twitter": (280, 23), "threads": (500, None),
           "mastodon": (500, 23), "linkedin": (3000, 24)}
@@ -215,7 +218,8 @@ def main() -> int:
     key = os.environ.get("BUFFER_API_KEY", "").strip()
     if key:
         buffer = Buffer(key)
-        channels += [c for c in buffer.channels() if not c.get("isQueuePaused")]
+        channels += [c for c in buffer.channels()
+                     if not c.get("isQueuePaused") and str(c.get("service", "")).lower() not in MEDIA_ONLY]
     clients = {}
     for c, client in direct_accounts():
         channels.append({**c, "direct": True})
