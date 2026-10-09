@@ -2,6 +2,9 @@
 # article goes live. Buffer then posts to whatever accounts are connected there
 # (X, LinkedIn, Bluesky, Threads, Facebook, Instagram, Mastodon, ...), so adding an account in
 # Buffer is all it takes to start posting to it.
+# Bluesky is posted to directly instead (free, any number of posts), from the BLUESKY_HANDLE
+# variable (default agentstructure.bsky.social) and the BLUESKY_APP_PASSWORD secret, so don't
+# also connect that account in Buffer or it will post twice.
 
 # Which blogs each Buffer channel gets. A key is matched, ignoring case, against the channel's
 # name, display name or network (bluesky, twitter, linkedin, threads, ...). "*" is every channel
