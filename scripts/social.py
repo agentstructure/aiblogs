@@ -201,8 +201,9 @@ def describe(buffer: Buffer, names: list[str]) -> None:
             print(f"  = {v['name']}")
 
 
-def share_once(buffer: Buffer, text: str, video: str, title: str, services: list[str], metadata: dict) -> int:
-    """Post one message (optionally with a video) to the named Buffer networks, 5 minutes from now."""
+def share_once(buffer: Buffer, text: str, video: str, title: str, services: list[str], metadata: dict,
+               image: str = "") -> int:
+    """Post one message (optionally with a video or an image) to the named Buffer networks, 5 minutes from now."""
     due = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=5)
     failed = 0
     for c in buffer.channels():
@@ -212,6 +213,8 @@ def share_once(buffer: Buffer, text: str, video: str, title: str, services: list
                "dueAt": due.isoformat(timespec="seconds").replace("+00:00", "Z")}
         if video:
             inp["assets"] = [{"video": {"url": video}}]
+        elif image:
+            inp["assets"] = [{"image": {"url": image}}]
         meta = metadata.get(c["service"].lower())
         if meta:
             inp["metadata"] = {c["service"].lower(): {k: (title if v == "$title" else v) for k, v in meta.items()}}
@@ -263,6 +266,7 @@ def main() -> int:
     ap.add_argument("--describe", nargs="+", metavar="TYPE", help="print Buffer input types")
     ap.add_argument("--once", metavar="TEXT", help="post this text once instead of the daily posts")
     ap.add_argument("--video", default="", help="public video URL for --once")
+    ap.add_argument("--image", default="", help="public image URL for --once")
     ap.add_argument("--title", default="", help="video title for --once (YouTube)")
     ap.add_argument("--services", default="", help="comma list for --once, e.g. twitter,linkedin,youtube")
     ap.add_argument("--metadata", default="{}", help='JSON per network for --once; "$title" is replaced')
@@ -275,7 +279,8 @@ def main() -> int:
             describe(Buffer(key), args.describe)
             return 0
         services = [x.strip().lower() for x in args.services.split(",") if x.strip()]
-        return share_once(Buffer(key), args.once, args.video, args.title, services, json.loads(args.metadata))
+        return share_once(Buffer(key), args.once, args.video, args.title, services, json.loads(args.metadata),
+                          args.image)
 
     channels, buffer = [], None
     key = os.environ.get("BUFFER_API_KEY", "").strip()
