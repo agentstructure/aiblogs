@@ -1,0 +1,34 @@
+name: Make vertical video
+
+# Turns a widescreen video into a 9:16 vertical one (blurred background, original centered)
+# for YouTube Shorts, TikTok and Reels, and PUTs it to a presigned upload URL.
+on:
+  workflow_dispatch:
+    inputs:
+      source_url:
+        description: "Public URL of the original video"
+        required: true
+      upload_url:
+        description: "Presigned PUT URL for the result (expires; not stored)"
+        required: true
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_URL: ${{ inputs.source_url }}
+      UPLOAD_URL: ${{ inputs.upload_url }}
+    steps:
+      - run: echo "::add-mask::$UPLOAD_URL"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Convert
+        run: |
+          curl -fsSL -A "aiblogs/1.0" -o in.mp4 "$SOURCE_URL"
+          ffprobe -v error -show_entries format=duration:stream=width,height -of compact in.mp4
+          ffmpeg -loglevel error -y -i in.mp4 -filter_complex \
+            "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:5[bg];[0:v]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuv420p" \
+            -c:v libx264 -preset medium -crf 23 -c:a aac -b:a 128k -movflags +faststart out.mp4
+          ffprobe -v error -show_entries format=duration,size:stream=width,height -of compact out.mp4
+      - name: Upload
+        run: |
+          curl -fsS -X PUT -H "Content-Type: video/mp4" --upload-file out.mp4 "$UPLOAD_URL" && echo uploaded
