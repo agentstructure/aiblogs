@@ -28,6 +28,12 @@ weekly email roundup for subscribers.
   comes from `roundups/<site>/<date>.md`, which the Monday routine writes. Run it by hand with
   "dry run" checked to preview the emails as a downloadable artifact.
 
+- **Social posts** (`scripts/social.py`, run by the publish workflow right after each post
+  goes live): schedules a short post with the article link on every account connected in
+  [Buffer](https://buffer.com), spread through the day (`social.yaml` says which accounts get
+  which blog and when). The blurb is the `social` line the routine writes with each article.
+  Needs the `BUFFER_API_KEY` secret (Buffer > Settings > API); without it this step is skipped.
+
 If one site's upload fails, the others still publish, and the run is marked failed so GitHub
 emails you.
 

@@ -1,0 +1,21 @@
+# Social posts, sent through Buffer (https://buffer.com) by scripts/social.py after each
+# article goes live. Buffer then posts to whatever accounts are connected there
+# (X, LinkedIn, Bluesky, Threads, Facebook, Instagram, Mastodon, ...), so adding an account in
+# Buffer is all it takes to start posting to it.
+
+# Which blogs each Buffer channel gets. A key is matched, ignoring case, against the channel's
+# name, display name or network (bluesky, twitter, linkedin, threads, ...). "*" is every channel
+# that no other key matches. A channel that carries more than one blog gets the blog's name in
+# front of each post, e.g. "Defense Stocks: ...".
+channels:
+  "*": [beforethebreakout, capitalraising, defensestocks, gamingstocks]
+  # When a blog gets its own accounts, give them a line of their own, e.g.
+  # BeforeTheBreakout: [beforethebreakout]
+
+# When each blog's post goes out, Eastern time, so a shared channel posts through the day
+# instead of four times at once. If a slot has already passed, the post goes out shortly.
+slots_et:
+  beforethebreakout: "09:30"
+  defensestocks: "11:30"
+  gamingstocks: "13:30"
+  capitalraising: "15:30"
