@@ -9,9 +9,10 @@ to that site, then recorded there so it is never shared twice.
   python scripts/social.py --channels  # list the connected Buffer channels
 
 Accounts: everything connected in Buffer (BUFFER_API_KEY, from Buffer > Settings > API), plus
-one Bluesky account posted to directly (BLUESKY_HANDLE + BLUESKY_APP_PASSWORD), which keeps a
-Buffer free-plan slot for another network. Buffer holds each post until its slot; Bluesky
-posts go out on the first run after the slot (the Share on social media workflow runs every
+accounts posted to directly for free, which keeps Buffer's free-plan slots for other networks:
+Bluesky (BLUESKY_HANDLE + BLUESKY_APP_PASSWORD), a Telegram channel (TELEGRAM_BOT_TOKEN of a
+bot that is admin there + TELEGRAM_CHAT, e.g. @AgentStructure) and Discord (DISCORD_WEBHOOK_URL).
+Buffer holds each post until its slot; direct posts go out on the first run after the slot (the Share on social media workflow runs every
 30 minutes). With neither set this prints a notice and exits.
 """
 
@@ -39,7 +40,7 @@ MAX_AGE = dt.timedelta(hours=20)  # one day's posts; Buffer's free plan holds 10
 ET = ZoneInfo("America/New_York")
 
 # Characters each network allows, and how many a link uses (Buffer's character-limits guide).
-LIMITS = {"bluesky": (300, "host+16"), "twitter": (280, 23), "threads": (500, None),
+LIMITS = {"telegram": (4000, None), "discord": (1900, None), "bluesky": (300, "host+16"), "twitter": (280, 23), "threads": (500, None),
           "mastodon": (500, 23), "linkedin": (3000, 24)}
 
 
@@ -123,6 +124,58 @@ class Bluesky:
         return res["uri"]
 
 
+class Telegram:
+    """Posts to a Telegram channel through a bot that is an admin there (free)."""
+
+    def __init__(self, token: str, chat: str):
+        self.token, self.chat = token, chat
+
+    def post(self, text: str, url: str, title: str, description: str) -> str:
+        body = {"chat_id": self.chat, "text": f"{text}\n\n{url}"}
+        res = _post_json(f"https://api.telegram.org/bot{self.token}/sendMessage", body, "Telegram")
+        if not res.get("ok"):
+            raise RuntimeError(f"Telegram: {res.get('description')}")
+        return str(res["result"]["message_id"])
+
+
+class Discord:
+    """Posts to a Discord channel through its webhook URL (free)."""
+
+    def __init__(self, webhook: str):
+        self.webhook = webhook
+
+    def post(self, text: str, url: str, title: str, description: str) -> str:
+        res = _post_json(self.webhook + "?wait=true", {"content": f"{text}\n{url}"}, "Discord")
+        return str(res.get("id", ""))
+
+
+def _post_json(url: str, body: dict, name: str) -> dict:
+    req = urllib.request.Request(url, method="POST", data=json.dumps(body).encode(),
+                                 headers={"Content-Type": "application/json", "User-Agent": UA})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read() or b"{}")
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"{name} HTTP {e.code}: {e.read().decode(errors='replace')[:300]}") from None
+
+
+def direct_accounts() -> list[tuple[dict, object]]:
+    """Accounts posted to without Buffer, from whichever secrets are set."""
+    out = []
+    sky = Bluesky.from_env()
+    if sky:
+        out.append(({"id": f"bluesky:{sky.handle}", "name": sky.handle, "service": "bluesky"}, sky))
+    token, chat = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip(), os.environ.get("TELEGRAM_CHAT", "").strip()
+    if token and chat:
+        print(f"::add-mask::{token}")
+        out.append(({"id": f"telegram:{chat}", "name": chat, "service": "telegram"}, Telegram(token, chat)))
+    hook = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+    if hook:
+        print(f"::add-mask::{hook}")
+        out.append(({"id": "discord:webhook", "name": "Discord", "service": "discord"}, Discord(hook)))
+    return out
+
+
 def sites_for(channel: dict, mapping: dict[str, list[str]]) -> list[str]:
     names = {str(channel.get(k) or "").lower().lstrip("@") for k in ("name", "displayName", "service")}
     specific = [s for key, sites in mapping.items() if key != "*" and key.lower().lstrip("@") in names
@@ -163,15 +216,16 @@ def main() -> int:
     if key:
         buffer = Buffer(key)
         channels += [c for c in buffer.channels() if not c.get("isQueuePaused")]
-    sky = Bluesky.from_env()
-    if sky:
-        channels.append({"id": f"bluesky:{sky.handle}", "name": sky.handle, "service": "bluesky", "direct": True})
+    clients = {}
+    for c, client in direct_accounts():
+        channels.append({**c, "direct": True})
+        clients[c["id"]] = client
     if args.channels or not channels:
         for c in channels:
             print(f"{c['service']}: {c.get('displayName') or c['name']} ({c['id']})")
         if not channels:
-            print("::notice title=social::No social accounts are set up (BUFFER_API_KEY or "
-                  "BLUESKY_HANDLE + BLUESKY_APP_PASSWORD), so nothing was shared")
+            print("::notice title=social::No social accounts are set up (BUFFER_API_KEY, "
+                  "BLUESKY_APP_PASSWORD, TELEGRAM_BOT_TOKEN or DISCORD_WEBHOOK_URL), so nothing was shared")
         return 0
 
     config = yaml.safe_load((ROOT / "social.yaml").read_text())
@@ -204,7 +258,7 @@ def main() -> int:
                 who = f"{c['service']} {c.get('displayName') or c['name']}"
                 when = "now" if c.get("direct") else f"at {due.astimezone(ET):%H:%M} ET"
                 if c.get("direct"):
-                    text = compose(c["service"], brand, blurb, "")  # the link goes in a preview card
+                    text = compose(c["service"], brand, blurb, "")  # each client adds the link itself
                 else:
                     text = compose(c["service"], brand, blurb, url)
                 if args.dry_run:
@@ -212,7 +266,7 @@ def main() -> int:
                     continue
                 try:
                     if c.get("direct"):
-                        post_id = sky.post(text, url, post.title, post.description)
+                        post_id = clients[c["id"]].post(text, url, post.title, post.description)
                     else:
                         post_id = buffer.create_post(c["id"], text, due)
                 except RuntimeError as e:
