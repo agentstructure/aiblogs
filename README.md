@@ -35,7 +35,10 @@ weekly email roundup for subscribers.
   Needs the `BUFFER_API_KEY` secret (Buffer > Settings > API). Bluesky is posted to directly,
   without Buffer, using the `BLUESKY_APP_PASSWORD` secret (Bluesky > Settings > Privacy and
   security > App passwords) for `agentstructure.bsky.social`. The **Share on social media**
-  workflow runs every 30 minutes to post Bluesky items when their slot comes. Without either
+  workflow runs every 30 minutes to post Bluesky items when their slot comes. A Telegram
+  channel (`TELEGRAM_BOT_TOKEN` secret of a bot that is admin there; channel from the
+  `TELEGRAM_CHAT` variable, default `@AgentStructure`) and a Discord channel
+  (`DISCORD_WEBHOOK_URL` secret) are posted to directly the same way. Without either
   secret, that account is skipped.
 
 If one site's upload fails, the others still publish, and the run is marked failed so GitHub
