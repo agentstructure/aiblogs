@@ -1,6 +1,6 @@
 name: Share one post
 
-# Posts a single message, optionally with a video, to chosen Buffer networks 5 minutes from
+# Posts a single message, optionally with a video or an image, to chosen Buffer networks 5 minutes from
 # now. "describe" only prints Buffer's input types (used to check what a network needs).
 on:
   workflow_dispatch:
@@ -10,6 +10,9 @@ on:
         default: ""
       video_url:
         description: "Public video URL (optional)"
+        default: ""
+      image_url:
+        description: "Public image URL (optional, used when there is no video)"
         default: ""
       title:
         description: "Video title (YouTube)"
@@ -31,6 +34,7 @@ jobs:
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       TEXT: ${{ inputs.text }}
       VIDEO: ${{ inputs.video_url }}
+      IMAGE: ${{ inputs.image_url }}
       TITLE: ${{ inputs.title }}
       SERVICES: ${{ inputs.services }}
       METADATA: ${{ inputs.metadata }}
@@ -46,5 +50,5 @@ jobs:
           if [ -n "$DESCRIBE" ]; then
             python scripts/social.py --describe $DESCRIBE
           else
-            python scripts/social.py --once "$TEXT" --video "$VIDEO" --title "$TITLE" --services "$SERVICES" --metadata "$METADATA"
+            python scripts/social.py --once "$TEXT" --video "$VIDEO" --image "$IMAGE" --title "$TITLE" --services "$SERVICES" --metadata "$METADATA"
           fi
