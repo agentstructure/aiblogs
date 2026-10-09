@@ -1,8 +1,9 @@
 # Daily writing routine
 
 A Claude routine runs this every morning. It writes one new article for each blog, files it
-with `scripts/posts.py`, and pushes to `main`. GitHub Actions then builds the sites and uploads
-them to Hostinger. On Mondays it also writes the intro for each site's weekly roundup email.
+with `scripts/posts.py`, and pushes to `main`. GitHub Actions then publishes them to the sites
+and shares them on social media. On Mondays it also writes the intro for each site's weekly
+roundup email.
 
 ## Steps
 
@@ -43,6 +44,10 @@ If one site fails, still publish the others and say which one failed and why.
   title is rendered separately).
 - Headline under 75 characters, specific, no clickbait. Description: one sentence under 160
   characters (used for search results and the email roundup).
+- `social`: one or two sentences under 200 characters for the social posts. Lead with the
+  single most striking verified fact or number, say why it matters, and make people want to
+  read on. Tickers with a cashtag ($LMT), at most one hashtag, no emoji walls, no hype, no
+  buy/sell calls. The link and blog name are added automatically, so leave them out.
 
 ## Draft format
 
@@ -51,6 +56,7 @@ If one site fails, still publish the others and say which one failed and why.
 title: "Pentagon's $9B Munitions Award Lifts Backlog at Lockheed Martin (LMT)"
 description: "What this week's munitions contracts mean for LMT, RTX and their suppliers."
 tags: ["contracts", "munitions", "LMT"]
+social: "The Pentagon just awarded $9B in munitions contracts, and $LMT's backlog is the biggest winner. Here's who supplies them."
 sources:
   - title: "Contracts for Oct. 6, 2026"
     url: "https://www.defense.gov/News/Contracts/"

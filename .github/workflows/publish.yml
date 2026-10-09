@@ -3,10 +3,11 @@ name: Publish posts
 # Sends each new post in content/<site>/ to that site's own publishing endpoint (the one Make
 # used), then records it in published/<site>.json so it is never sent twice.
 # Sean approved publishing to all four live sites on 2026-10-07.
+# Then shares each new post on social media through Buffer (scripts/social.py, social.yaml).
 on:
   push:
     branches: [main]
-    paths: ["content/**", "scripts/publish.py"]
+    paths: ["content/**", "scripts/publish.py", "scripts/social.py", "social.yaml"]
   workflow_dispatch:
     inputs:
       dry_run:
@@ -28,6 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -36,10 +38,13 @@ jobs:
       - run: pip install --quiet -r requirements.txt
       - name: Publish new posts
         run: python scripts/publish.py ${{ inputs.dry_run && '--dry-run' || '' }}
+      - name: Share new posts on social media
+        if: ${{ !cancelled() }}
+        run: python scripts/social.py ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Record what was published
         if: always()
         run: |
-          git add published/ 2>/dev/null || true
+          git add published/ social/ 2>/dev/null || true
           if git diff --cached --quiet; then exit 0; fi
           git config user.name "aiblogs publisher"
           git config user.email "actions@users.noreply.github.com"

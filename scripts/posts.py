@@ -9,6 +9,7 @@ A draft is markdown with front matter:
     title: "..."
     description: "..."
     tags: ["...", "..."]
+    social: "..."   # optional, under 200 characters, used for the social posts
     sources:
       - title: "..."
         url: "https://..."
@@ -29,6 +30,7 @@ import yaml
 from common import CONTENT_DIR, get_site, load_posts, load_sites, parse_front_matter, slugify
 
 MIN_WORDS = 600
+SOCIAL_MAX = 200  # fits Bluesky (300) and X (280) with the brand name and link added
 
 
 def pillar_for(site: dict, date: dt.date) -> str:
@@ -72,6 +74,9 @@ def add(slug: str, draft: Path, date: dt.date) -> int:
     sources = meta.get("sources") or []
     if not sources or not all(isinstance(s, dict) and str(s.get("url", "")).startswith("http") for s in sources):
         problems.append("sources must be a list of {title, url} with at least one http(s) url")
+    social = " ".join(str(meta.get("social") or "").split())
+    if len(social) > SOCIAL_MAX:
+        problems.append(f"social is {len(social)} characters (keep it under {SOCIAL_MAX})")
     if problems:
         print(f"[{slug}] draft rejected:\n  - " + "\n  - ".join(problems), file=sys.stderr)
         return 1
@@ -89,6 +94,8 @@ def add(slug: str, draft: Path, date: dt.date) -> int:
         "pillar": pillar_for(site, date),
         "sources": sources[:15],
     }
+    if social:
+        front["social"] = social
     out = CONTENT_DIR / slug / f"{date.isoformat()}-{post_slug}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("---\n" + yaml.safe_dump(front, sort_keys=False, allow_unicode=True) + "---\n\n" + body)

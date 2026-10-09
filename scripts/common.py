@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import datetime as dt
+import json
 import re
+import urllib.parse
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -58,6 +60,7 @@ class Post:
     body_md: str
     tags: list[str] = field(default_factory=list)
     sources: list[dict] = field(default_factory=list)
+    social: str = ""  # short social-media blurb written with the post (optional)
 
     @property
     def path(self) -> str:
@@ -90,7 +93,24 @@ def load_posts(site_slug: str) -> list[Post]:
                 body_md=body,
                 tags=meta.get("tags") or [],
                 sources=meta.get("sources") or [],
+                social=(meta.get("social") or "").strip(),
             )
         )
     posts.sort(key=lambda p: (p.date, p.slug), reverse=True)
     return posts
+
+
+def live_url(slug: str, site: dict, post, utm: str = "") -> str:
+    """Where the post lives on the site, from what its endpoint answered (published/<site>.json)."""
+    home = f"https://{site.get('hosting_domain') or site['domain']}"
+    log_file = ROOT / "published" / f"{slug}.json"
+    result = (json.loads(log_file.read_text()) if log_file.exists() else {}).get(post.slug, {}).get("result", "")
+    if result.startswith("http"):
+        url = result                                                    # capitalraising: full URL
+    elif slug == "gamingstocks" and result:
+        url = f"{home}/post.php?slug={urllib.parse.quote(result.rsplit('/', 1)[-1])}"
+    elif slug == "beforethebreakout" and result:
+        url = f"{home}/daily-article.php?slug={urllib.parse.quote(result)}"
+    else:
+        url = f"{home}/blog.html"                                       # defensestocks lists posts on one page
+    return url + ("&" if "?" in url else "?") + utm if utm else url
