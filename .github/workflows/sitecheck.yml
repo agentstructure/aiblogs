@@ -5,7 +5,7 @@ name: Check live sites
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 13 * * *"  # daily, after the morning posts
+    - cron: "30 13 * * 1"  # weekly, to save Actions minutes  # daily, after the morning posts
 
 jobs:
   check:
