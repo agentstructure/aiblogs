@@ -24,8 +24,7 @@ permissions:
 
 jobs:
   publish:
-    # endpoint keys are read at run time; keep these logs private
-    if: ${{ github.event.repository.private }}
+    # endpoint keys are read at run time and masked in the log (scripts/publish.py)
     runs-on: ubuntu-latest
     env:
       HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGERAPITOKEN }}
