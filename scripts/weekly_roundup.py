@@ -83,6 +83,10 @@ def main() -> int:
             )
             print(f"[{slug}] sent campaign {campaign_id}: {subject!r} ({len(posts)} posts)")
         except Exception as e:
+            if "no contacts associated" in str(e):
+                # Brevo refuses a campaign to an empty list; nothing to send yet.
+                print(f"[{slug}] skipped: no subscribers on this site's list yet")
+                continue
             print(f"::error title={slug}::{e}", file=sys.stderr)
             failures.append(slug)
     return 1 if failures else 0
