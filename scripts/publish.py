@@ -26,7 +26,7 @@ import urllib.request
 from common import ROOT, load_posts, load_sites
 
 PUBLISHED = ROOT / "published"
-MAX_AGE_DAYS = 3  # older unpublished posts are left alone rather than backfilled
+MAX_AGE_DAYS = 10  # older unpublished posts are left alone rather than backfilled (raised while Actions was blocked)
 UA = "aiblogs/1.0 (+https://github.com/agentstructure/aiblogs)"
 
 # How each site takes a post. `secret_from` is the endpoint file holding its key.
