@@ -263,6 +263,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--channels", action="store_true")
+    ap.add_argument("--all-channels", action="store_true", help="list every Buffer channel, even with sharing off")
     ap.add_argument("--describe", nargs="+", metavar="TYPE", help="print Buffer input types")
     ap.add_argument("--once", metavar="TEXT", help="post this text once instead of the daily posts")
     ap.add_argument("--video", default="", help="public video URL for --once")
@@ -271,10 +272,15 @@ def main() -> int:
     ap.add_argument("--services", default="", help="comma list for --once, e.g. twitter,linkedin,youtube")
     ap.add_argument("--metadata", default="{}", help='JSON per network for --once; "$title" is replaced')
     args = ap.parse_args()
-    if args.describe or args.once:
+    if args.describe or args.once or args.all_channels:
         key = os.environ.get("BUFFER_API_KEY", "").strip()
         if not key:
             raise SystemExit("BUFFER_API_KEY is not set")
+        if args.all_channels:
+            for c in Buffer(key).channels():
+                paused = " (queue paused)" if c.get("isQueuePaused") else ""
+                print(f"{c['service']}: {c.get('displayName') or c['name']} @{c['name']}{paused}")
+            return 0
         if args.describe:
             describe(Buffer(key), args.describe)
             return 0
