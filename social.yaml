@@ -15,6 +15,10 @@ channels:
   # When a blog gets its own accounts, give them a line of their own, e.g.
   # BeforeTheBreakout: [beforethebreakout]
 
+# Channels that get nothing, matched like the keys above (name, display name or network).
+# Sean turned off the AgentStructure X account on 2026-10-14; remove "twitter" to turn it back on.
+skip: [twitter, x]
+
 # When each blog's post goes out, Eastern time, so a shared channel posts through the day
 # instead of four times at once. If a slot has already passed, the post goes out shortly.
 slots_et:

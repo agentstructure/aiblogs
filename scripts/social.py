@@ -302,6 +302,9 @@ def main() -> int:
 
     config = yaml.safe_load((ROOT / "social.yaml").read_text())
     mapping, slots = config.get("channels") or {}, config.get("slots_et") or {}
+    skip = {str(k).lower().lstrip("@") for k in config.get("skip") or []}
+    channels = [c for c in channels if not skip & {str(c.get(k) or "").lower().lstrip("@")
+                                                   for k in ("name", "displayName", "service")}]
     routes = {c["id"]: sites_for(c, mapping) for c in channels}
     now = dt.datetime.now(dt.UTC)
     sites = load_sites()
