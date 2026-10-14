@@ -31,3 +31,8 @@ slots_et:
   defensestocks: "11:30"
   gamingstocks: "13:30"
   capitalraising: "15:30"
+
+# agentstructure.ai ecosystem posts (scripts/share_ecosystem.py) ignore `enabled` and `skip` above, which
+# are for AI Blogs. Channels listed here get none of them. Empty: they go to every connected account, X included
+# (Sean, 2026-10-14: the site blog can go to socials; AI Blogs stay off).
+ecosystem_skip: []
