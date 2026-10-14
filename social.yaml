@@ -1,3 +1,8 @@
+# Master switch for the automatic social posts (publish and "Share on social media" workflows).
+# Sean turned all social sharing off on 2026-10-14: AI Blogs go to the blogs only, for now.
+# Set to true to start posting again. Secrets, connections and past posts are untouched.
+enabled: false
+
 # Social posts, sent through Buffer (https://buffer.com) by scripts/social.py after each
 # article goes live. Buffer then posts to whatever accounts are connected there
 # (X, LinkedIn, Bluesky, Threads, Facebook, Instagram, Mastodon, ...), so adding an account in

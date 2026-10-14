@@ -282,6 +282,10 @@ def main() -> int:
         return share_once(Buffer(key), args.once, args.video, args.title, services, json.loads(args.metadata),
                           args.image)
 
+    if not (yaml.safe_load((ROOT / "social.yaml").read_text()) or {}).get("enabled", True):
+        print("::notice title=social::Social sharing is off (enabled: false in social.yaml), so nothing was shared")
+        return 0
+
     channels, buffer = [], None
     key = os.environ.get("BUFFER_API_KEY", "").strip()
     if key:
