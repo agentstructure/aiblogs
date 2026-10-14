@@ -54,7 +54,7 @@ def main() -> int:
         return 0
 
     config = yaml.safe_load((social.ROOT / "social.yaml").read_text())
-    skip = {str(k).lower().lstrip("@") for k in config.get("skip") or []}
+    skip = {str(k).lower().lstrip("@") for k in config.get("ecosystem_skip") or []}
     channels = [c for c in channels if not skip & {str(c.get(k) or "").lower().lstrip("@")
                                                    for k in ("name", "displayName", "service")}]
 
