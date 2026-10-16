@@ -22,5 +22,17 @@
    "post_id": "6ad1038502634b2d67e50c68",
    "due": "2026-10-15T17:22+00:00"
   }
+ },
+ "political-prediction-signals-who-its-for": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad25af870b50ef262ad98f2",
+   "due": "2026-10-16T17:27+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad25af8bf6bc9680ee31f04",
+   "due": "2026-10-16T17:47+00:00"
+  }
  }
 }
