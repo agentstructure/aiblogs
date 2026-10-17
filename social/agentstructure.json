@@ -34,5 +34,101 @@
    "post_id": "6ad25af8bf6bc9680ee31f04",
    "due": "2026-10-16T17:47+00:00"
   }
+ },
+ "opinionpulse-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8b938409f1d086e3df",
+   "due": "2026-10-17T13:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8bdd83363c4dd0dc60",
+   "due": "2026-10-17T13:23+00:00"
+  }
+ },
+ "localeventstracker-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8b0a208cb3231e92d7",
+   "due": "2026-10-17T13:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8bdd83363c4dd0dcbf",
+   "due": "2026-10-17T14:03+00:00"
+  }
+ },
+ "fedregtracker-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8cae173d6e00b7daaf",
+   "due": "2026-10-17T14:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8c0b0d72757ad8d161",
+   "due": "2026-10-17T14:43+00:00"
+  }
+ },
+ "clinicaltracker-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8c0b0d72757ad8d18c",
+   "due": "2026-10-17T15:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8c769b457934793a35",
+   "due": "2026-10-17T15:23+00:00"
+  }
+ },
+ "sec-stock-signals-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8d769b457934793a61",
+   "due": "2026-10-17T15:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8d938409f1d086e4ee",
+   "due": "2026-10-17T16:03+00:00"
+  }
+ },
+ "rolerank-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8ddd83363c4dd0dd1b",
+   "due": "2026-10-17T16:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8dae173d6e00b7db2e",
+   "due": "2026-10-17T16:43+00:00"
+  }
+ },
+ "realty-bingo-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8ddd83363c4dd0dd4c",
+   "due": "2026-10-17T17:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8e0b0d72757ad8d204",
+   "due": "2026-10-17T17:23+00:00"
+  }
+ },
+ "catholic-reminders-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad36e8e769b457934793aa2",
+   "due": "2026-10-17T17:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad36e8eae173d6e00b7db6e",
+   "due": "2026-10-17T18:03+00:00"
+  }
  }
 }
