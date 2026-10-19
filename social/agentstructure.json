@@ -178,5 +178,53 @@
    "post_id": "6ad4c0090b0d72757a2167ad",
    "due": "2026-10-18T15:23+00:00"
   }
+ },
+ "realty-bingo-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad61370701b6eabfdc65788",
+   "due": "2026-10-19T13:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad613709d89c1f845bf450a",
+   "due": "2026-10-19T13:31+00:00"
+  }
+ },
+ "fedregtracker-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad6137151676f487cfc6fdd",
+   "due": "2026-10-19T13:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad613715d0e03e7d3baa11f",
+   "due": "2026-10-19T14:11+00:00"
+  }
+ },
+ "clinicaltracker-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad61371e9e263ce82166883",
+   "due": "2026-10-19T14:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad61372701b6eabfdc657c8",
+   "due": "2026-10-19T14:51+00:00"
+  }
+ },
+ "catholic-reminders-with-alexa": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad61372b0a056e4b94a0be3",
+   "due": "2026-10-19T15:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad613725d0e03e7d3baa177",
+   "due": "2026-10-19T15:31+00:00"
+  }
  }
 }
