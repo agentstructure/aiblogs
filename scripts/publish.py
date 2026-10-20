@@ -114,7 +114,13 @@ def main() -> int:
             continue
         headers = {}
         if target.get("secret_from") and not args.dry_run:
-            name, key = endpoint_key(*target["secret_from"])
+            try:
+                name, key = endpoint_key(*target["secret_from"])
+            except Exception as e:
+                # e.g. the Hostinger API is down; publish the other sites, retry this one next run
+                failed = True
+                print(f"::error title={slug}::could not read the endpoint key: {str(e)[:200]}")
+                continue
             headers[name] = key
         for post in todo:
             data = payload(post, site, target["style"])
