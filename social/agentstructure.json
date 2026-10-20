@@ -226,5 +226,53 @@
    "post_id": "6ad613725d0e03e7d3baa177",
    "due": "2026-10-19T15:31+00:00"
   }
+ },
+ "sec-stock-signals-with-perplexity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad764f2ff291a23994d88b9",
+   "due": "2026-10-20T13:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad764f2fcb5599ad939ae43",
+   "due": "2026-10-20T13:31+00:00"
+  }
+ },
+ "rolerank-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad764f3029e8e5ef990243b",
+   "due": "2026-10-20T13:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad764f3cf1d4d5c5e5e5502",
+   "due": "2026-10-20T14:11+00:00"
+  }
+ },
+ "political-prediction-signals-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad764f3a154249523cffe2a",
+   "due": "2026-10-20T14:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad764f3ff291a23994d890d",
+   "due": "2026-10-20T14:51+00:00"
+  }
+ },
+ "govcontractfinder-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad764f4892e8621b52a92c0",
+   "due": "2026-10-20T15:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad764f4029e8e5ef9902470",
+   "due": "2026-10-20T15:31+00:00"
+  }
  }
 }
