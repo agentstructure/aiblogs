@@ -274,5 +274,125 @@
    "post_id": "6ad764f4029e8e5ef9902470",
    "due": "2026-10-20T15:31+00:00"
   }
+ },
+ "sec-stock-signals-with-muse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b663333aa279085230e0",
+   "due": "2026-10-21T13:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b66388865f7e6d2fc617",
+   "due": "2026-10-21T13:31+00:00"
+  }
+ },
+ "sec-stock-signals-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b66388865f7e6d2fc640",
+   "due": "2026-10-21T13:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6640c5e774bdfb06115",
+   "due": "2026-10-21T14:11+00:00"
+  }
+ },
+ "political-prediction-signals-how-political-posts-move-prediction-markets": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b6640e8e6c40c7cf4b62",
+   "due": "2026-10-21T14:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6640e8e6c40c7cf4b92",
+   "due": "2026-10-21T14:51+00:00"
+  }
+ },
+ "opinionpulse-real-time-polling-explained-what-to-watch-and-what-to-ignore": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b6640c5e774bdfb0616a",
+   "due": "2026-10-21T15:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b665820ac62799503425",
+   "due": "2026-10-21T15:31+00:00"
+  }
+ },
+ "sec-stock-signals-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b6650e8e6c40c7cf4bda",
+   "due": "2026-10-21T15:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6650811076dd03b0585",
+   "due": "2026-10-21T16:11+00:00"
+  }
+ },
+ "sec-stock-signals-how-to-follow-a-company-s-8-k-filings-without-reading-every-": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b66688865f7e6d2fc6d5",
+   "due": "2026-10-21T16:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6660e8e6c40c7cf4c1c",
+   "due": "2026-10-21T16:51+00:00"
+  }
+ },
+ "realty-bingo-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b666820ac62799503482",
+   "due": "2026-10-21T17:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6660e8e6c40c7cf4c52",
+   "due": "2026-10-21T17:31+00:00"
+  }
+ },
+ "opinionpulse-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b666820ac627995034ac",
+   "due": "2026-10-21T17:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b667820ac627995034dc",
+   "due": "2026-10-21T18:11+00:00"
+  }
+ },
+ "localeventstracker-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b6670e8e6c40c7cf4c96",
+   "due": "2026-10-21T18:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b667333aa27908523204",
+   "due": "2026-10-21T18:51+00:00"
+  }
+ },
+ "fedregtracker-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ad8b6670811076dd03b06c7",
+   "due": "2026-10-21T19:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ad8b6680e8e6c40c7cf4cf3",
+   "due": "2026-10-21T19:31+00:00"
+  }
  }
 }
