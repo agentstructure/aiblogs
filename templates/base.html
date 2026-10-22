@@ -7,6 +7,7 @@
 <meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
 <link rel="canonical" href="{{ site.url }}{% block canonical %}/{% endblock %}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+<script>try { if (localStorage.getItem('motion') === 'off') document.documentElement.setAttribute('data-motion', 'off'); } catch (e) {}</script>
 <link rel="stylesheet" href="{{ site.base }}/style.css?v={{ build_id }}">
 <style>:root { --accent: {{ site.accent }}; }</style>
 {% block head %}{% endblock %}
@@ -36,10 +37,36 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>&copy; {{ year }} {{ site.name }} &middot; <a href="{{ site.base }}/about/">About</a> &middot; <a href="{{ site.base }}/privacy/">Privacy</a> &middot; <a href="{{ site.base }}/feed.xml">RSS</a></p>
+    <p hidden><button type="button" class="motion-toggle" aria-pressed="false"></button></p>
     <p class="disclaimer">Content on this site is for information and education only and is not investment, legal or financial advice. Articles are researched and drafted with AI assistance. Do your own research.</p>
   </div>
 </footer>
 <script>
+(function () {
+  // Pause animations (WCAG 2.2.2): remembered in this browser, applied in <head> before paint.
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.motion-toggle');
+  function render() {
+    var paused = root.getAttribute('data-motion') === 'off';
+    buttons.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      btn.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="' +
+        (paused ? 'M4 2.5v11l9-5.5z' : 'M4 2.5h3v11H4zm5 0h3v11H9z') + '"/></svg>' +
+        (paused ? 'Play animations' : 'Pause animations');
+      btn.parentNode.hidden = false;
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var paused = root.getAttribute('data-motion') !== 'off';
+      if (paused) root.setAttribute('data-motion', 'off'); else root.removeAttribute('data-motion');
+      try { if (paused) localStorage.setItem('motion', 'off'); else localStorage.removeItem('motion'); } catch (e) {}
+      render();
+      window.dispatchEvent(new CustomEvent('site-motion-change', { detail: { paused: paused } }));
+    });
+  });
+  render();
+})();
 document.querySelectorAll('.subscribe-form').forEach(function (form) {
   form.addEventListener('submit', function (e) {
     e.preventDefault();

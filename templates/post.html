@@ -11,6 +11,7 @@
 <script type="application/ld+json">{{ jsonld | safe }}</script>
 {% endblock %}
 {% block main %}
+<div class="read-progress" aria-hidden="true"></div>
 <article class="post">
   <h1>{{ post.title }}</h1>
   <p class="meta"><time datetime="{{ post.date }}">{{ post.date.strftime('%B %-d, %Y') }}</time> &middot; {{ post.reading_minutes }} min read{% if post.tags %} &middot; {{ post.tags | join(', ') }}{% endif %}</p>
