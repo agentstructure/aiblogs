@@ -37,7 +37,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>&copy; {{ year }} {{ site.name }} &middot; <a href="{{ site.base }}/about/">About</a> &middot; <a href="{{ site.base }}/privacy/">Privacy</a> &middot; <a href="{{ site.base }}/feed.xml">RSS</a></p>
-    <p><button type="button" class="motion-toggle" aria-pressed="false" hidden></button></p>
+    <p hidden><button type="button" class="motion-toggle" aria-pressed="false"></button></p>
     <p class="disclaimer">Content on this site is for information and education only and is not investment, legal or financial advice. Articles are researched and drafted with AI assistance. Do your own research.</p>
   </div>
 </footer>
@@ -53,7 +53,7 @@
       btn.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="' +
         (paused ? 'M4 2.5v11l9-5.5z' : 'M4 2.5h3v11H4zm5 0h3v11H9z') + '"/></svg>' +
         (paused ? 'Play animations' : 'Pause animations');
-      btn.hidden = false;
+      btn.parentNode.hidden = false;
     });
   }
   buttons.forEach(function (btn) {

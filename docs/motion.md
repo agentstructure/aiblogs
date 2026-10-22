@@ -44,7 +44,7 @@ The footer in `templates/base.html` (shared by every page of every blog) has a
 **Pause animations** button (`.motion-toggle`, `aria-pressed`). It sets
 `<html data-motion="off">` and stores `motion=off` in `localStorage` (wrapped in try/catch).
 A tiny inline script in `<head>` applies the stored choice before the stylesheet loads, so
-there is no flash of motion. The button is `hidden` in the HTML and only shown once the
+there is no flash of motion. The button's paragraph is `hidden` in the HTML and only shown once the
 footer script runs, so it never appears without JavaScript. Clicking it fires
 `site-motion-change` on `window` for any future script that animates.
 The `:root[data-motion="off"]` rule in `static/style.css` stops all animations, makes
