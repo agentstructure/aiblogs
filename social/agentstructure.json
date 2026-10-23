@@ -598,5 +598,53 @@
    "post_id": "6adaa4aed447d56a646a4ae0",
    "due": "2026-10-23T05:19+00:00"
   }
+ },
+ "political-prediction-signals-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adb59126556f503c4315c87",
+   "due": "2026-10-23T13:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adb591297d61d39214739ff",
+   "due": "2026-10-23T13:29+00:00"
+  }
+ },
+ "opinionpulse-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adb59122e6bddea983ff663",
+   "due": "2026-10-23T13:49+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adb591397d61d3921473a5b",
+   "due": "2026-10-23T14:09+00:00"
+  }
+ },
+ "localeventstracker-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adb59134553446d6b8036e3",
+   "due": "2026-10-23T14:29+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adb59134553446d6b803718",
+   "due": "2026-10-23T14:49+00:00"
+  }
+ },
+ "govcontractfinder-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adb59136556f503c4315cf1",
+   "due": "2026-10-23T15:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adb59144553446d6b80377f",
+   "due": "2026-10-23T15:29+00:00"
+  }
  }
 }
