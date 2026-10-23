@@ -502,5 +502,101 @@
    "post_id": "6ada07f2f09f431dcadc3ce0",
    "due": "2026-10-22T18:51+00:00"
   }
+ },
+ "bundle-following-the-money-sec-filings-plus-federal-contracts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4aa8d2197cb2a08757c",
+   "due": "2026-10-23T00:19+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4aa1dc335d347e5b8a9",
+   "due": "2026-10-23T00:39+00:00"
+  }
+ },
+ "roundup-lindy-and-work-assistants-turning-alerts-into-tasks": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4aacc1b7cdc08c0b97c",
+   "due": "2026-10-23T00:59+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4abcc1b7cdc08c0b9a6",
+   "due": "2026-10-23T01:19+00:00"
+  }
+ },
+ "sec-stock-signals-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ab1dc335d347e5b905",
+   "due": "2026-10-23T01:39+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4abcc1b7cdc08c0b9d0",
+   "due": "2026-10-23T01:59+00:00"
+  }
+ },
+ "explainer-what-is-an-api-key-and-why-do-some-apps-need-one": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ab8d2197cb2a0875d4",
+   "due": "2026-10-23T02:19+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4ab1dc335d347e5b95e",
+   "due": "2026-10-23T02:39+00:00"
+  }
+ },
+ "sec-stock-signals-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ac535235087b71950d",
+   "due": "2026-10-23T02:59+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4ac535235087b71953f",
+   "due": "2026-10-23T03:19+00:00"
+  }
+ },
+ "sec-stock-signals-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ac8d2197cb2a087632",
+   "due": "2026-10-23T03:39+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4ad535235087b7195a7",
+   "due": "2026-10-23T03:59+00:00"
+  }
+ },
+ "sec-stock-signals-with-telegram": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ad9ef33e7811ab9fc7",
+   "due": "2026-10-23T04:19+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4ad9ef33e7811ab9ff8",
+   "due": "2026-10-23T04:39+00:00"
+  }
+ },
+ "sec-stock-signals-with-alexa": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adaa4ae1dc335d347e5babb",
+   "due": "2026-10-23T04:59+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adaa4aed447d56a646a4ae0",
+   "due": "2026-10-23T05:19+00:00"
+  }
  }
 }
