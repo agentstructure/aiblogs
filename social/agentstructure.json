@@ -766,5 +766,113 @@
    "post_id": "6adca9e0e4be8a4d865bc1cd",
    "due": "2026-10-24T19:26+00:00"
   }
+ },
+ "explainer-how-to-connect-any-agentstructure-app-to-your-ai-in-five-minutes": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb336887a2efc105c8cd",
+   "due": "2026-10-25T13:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb330b5343d070d105f2",
+   "due": "2026-10-25T13:25+00:00"
+  }
+ },
+ "roundup-poke-and-messaging-first-agents-a-roundup": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb348b3d437ddc09f419",
+   "due": "2026-10-25T13:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb346887a2efc105c92a",
+   "due": "2026-10-25T14:05+00:00"
+  }
+ },
+ "sec-stock-signals-with-poe": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb34bd33ce99c3703f01",
+   "due": "2026-10-25T14:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb350b5343d070d1063d",
+   "due": "2026-10-25T14:45+00:00"
+  }
+ },
+ "sec-stock-signals-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb35e4be8a4d86a95236",
+   "due": "2026-10-25T15:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb358b3d437ddc09f455",
+   "due": "2026-10-25T15:25+00:00"
+  }
+ },
+ "explainer-text-email-or-ai-choosing-how-to-receive-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb36e4be8a4d86a95281",
+   "due": "2026-10-25T15:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb363d5b27036bd1be36",
+   "due": "2026-10-25T16:05+00:00"
+  }
+ },
+ "political-prediction-signals-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb360b5343d070d106df",
+   "due": "2026-10-25T16:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb36e4be8a4d86a952ea",
+   "due": "2026-10-25T16:45+00:00"
+  }
+ },
+ "rolerank-with-chatgpt": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb378b3d437ddc09f4c2",
+   "due": "2026-10-25T17:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb378b3d437ddc09f4ec",
+   "due": "2026-10-25T17:25+00:00"
+  }
+ },
+ "political-prediction-signals-with-perplexity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb383d5b27036bd1be96",
+   "due": "2026-10-25T17:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb386887a2efc105c9be",
+   "due": "2026-10-25T18:05+00:00"
+  }
+ },
+ "govcontractfinder-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6addfb38e4be8a4d86a95336",
+   "due": "2026-10-25T18:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6addfb393d5b27036bd1bf01",
+   "due": "2026-10-25T18:45+00:00"
+  }
  }
 }
