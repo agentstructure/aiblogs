@@ -958,5 +958,53 @@
    "post_id": "6ade986ae4be8a4d86d3b7e3",
    "due": "2026-10-26T04:36+00:00"
   }
+ },
+ "realty-bingo-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adf69c58678dce367cc2886",
+   "due": "2026-10-26T15:10+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adf69c56b7765f94d52c2bc",
+   "due": "2026-10-26T15:30+00:00"
+  }
+ },
+ "opinionpulse-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adf69c5bc208c66b5fc6655",
+   "due": "2026-10-26T15:50+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adf69c58678dce367cc28c7",
+   "due": "2026-10-26T16:10+00:00"
+  }
+ },
+ "localeventstracker-with-claude": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adf69c66b7765f94d52c2f1",
+   "due": "2026-10-26T16:30+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adf69c6bc208c66b5fc66b7",
+   "due": "2026-10-26T16:50+00:00"
+  }
+ },
+ "fedregtracker-with-perplexity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6adf69c66f512eb3b465a0dc",
+   "due": "2026-10-26T17:10+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6adf69c76f512eb3b465a14e",
+   "due": "2026-10-26T17:30+00:00"
+  }
  }
 }
