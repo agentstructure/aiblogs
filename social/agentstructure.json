@@ -874,5 +874,89 @@
    "post_id": "6addfb393d5b27036bd1bf01",
    "due": "2026-10-25T18:45+00:00"
   }
+ },
+ "political-prediction-signals-with-muse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade98650b5343d070fbf495",
+   "due": "2026-10-26T00:16+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade98663d5b27036bfcadd4",
+   "due": "2026-10-26T00:36+00:00"
+  }
+ },
+ "roundup-kimi-qwen-and-deepseek-using-alerts-with-chinese-assistants": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade98663d5b27036bfcae0a",
+   "due": "2026-10-26T00:56+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade98668b3d437ddc35a306",
+   "due": "2026-10-26T01:16+00:00"
+  }
+ },
+ "explainer-alerts-vs-notifications-vs-newsletters-what-s-the-difference": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade98673d5b27036bfcae37",
+   "due": "2026-10-26T01:36+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade9867bd33ce99c39b0dad",
+   "due": "2026-10-26T01:56+00:00"
+  }
+ },
+ "sec-stock-signals-insider-buying-and-selling-alerts-what-form-4-filings-show": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade98670b5343d070fbf52e",
+   "due": "2026-10-26T02:16+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade98680b5343d070fbf558",
+   "due": "2026-10-26T02:36+00:00"
+  }
+ },
+ "bundle-policy-to-portfolio-fedreg-plus-sec-signals": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade9868e4be8a4d86d3b747",
+   "due": "2026-10-26T02:56+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade9868bd33ce99c39b0e1c",
+   "due": "2026-10-26T03:16+00:00"
+  }
+ },
+ "political-prediction-signals-election-night-following-markets-and-posts-side-by-side": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade9869e4be8a4d86d3b785",
+   "due": "2026-10-26T03:36+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade98690b5343d070fbf5c2",
+   "due": "2026-10-26T03:56+00:00"
+  }
+ },
+ "opinionpulse-polls-markets-and-social-buzz-three-signals-one-view": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ade9869bd33ce99c39b0e9b",
+   "due": "2026-10-26T04:16+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ade986ae4be8a4d86d3b7e3",
+   "due": "2026-10-26T04:36+00:00"
+  }
  }
 }
