@@ -1102,5 +1102,41 @@
    "post_id": "6adfeb903bff354cec68d3a8",
    "due": "2026-10-27T05:23+00:00"
   }
+ },
+ "govcontractfinder-with-perplexity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae09ffd8fa8b2f716ddfee8",
+   "due": "2026-10-27T13:13+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae09ffdc8df6b6a011f1320",
+   "due": "2026-10-27T13:33+00:00"
+  }
+ },
+ "clinicaltracker-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae09ffe58fd3c2079eb43f1",
+   "due": "2026-10-27T13:53+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae09ffe58fd3c2079eb4438",
+   "due": "2026-10-27T14:13+00:00"
+  }
+ },
+ "catholic-reminders-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae09ffed477c7b7130efa31",
+   "due": "2026-10-27T14:33+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae09fff6cd613c483294da9",
+   "due": "2026-10-27T14:53+00:00"
+  }
  }
 }
