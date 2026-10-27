@@ -26,6 +26,9 @@ on:
       describe:
         description: "Instead of posting, print these Buffer types (space separated)"
         default: ""
+      graphql:
+        description: "Instead of posting, run this read-only Buffer GraphQL query and print the result"
+        default: ""
       list_channels:
         description: "Instead of posting, list every account connected to Buffer"
         type: boolean
@@ -44,6 +47,7 @@ jobs:
       METADATA: ${{ inputs.metadata }}
       DESCRIBE: ${{ inputs.describe }}
       LIST_CHANNELS: ${{ inputs.list_channels }}
+      GRAPHQL: ${{ inputs.graphql }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -52,7 +56,9 @@ jobs:
       - run: pip install --quiet -r requirements.txt
       - name: Share
         run: |
-          if [ "$LIST_CHANNELS" = "true" ]; then
+          if [ -n "$GRAPHQL" ]; then
+            python scripts/social.py --graphql "$GRAPHQL"
+          elif [ "$LIST_CHANNELS" = "true" ]; then
             python scripts/social.py --all-channels
           elif [ -n "$DESCRIBE" ]; then
             python scripts/social.py --describe $DESCRIBE
