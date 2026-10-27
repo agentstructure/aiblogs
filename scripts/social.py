@@ -286,19 +286,18 @@ def main() -> int:
         if args.posts:
             b = Buffer(key)
             for org in b.query("query { account { organizations { id } } }")["account"]["organizations"]:
-                for fields in ("id channelService status dueAt sentAt externalLink text error { message }",
-                               "id channelService status dueAt sentAt externalLink text error"):
-                    try:
-                        d = b.query("query($o: OrganizationId!) { posts(first: 100, input: {organizationId: $o}) "
-                                    "{ edges { node { %s } } } }" % fields, {"o": org["id"]})
+                after = None
+                for _ in range(40):
+                    d = b.query("query($o: OrganizationId!, $a: String) { posts(first: 100, after: $a, input: {organizationId: $o}) "
+                                "{ pageInfo { hasNextPage endCursor } edges { node { id channelService status dueAt sentAt "
+                                "externalLink text error { message } } } } }", {"o": org["id"], "a": after})["posts"]
+                    for e in d["edges"]:
+                        n = e["node"]
+                        if n["channelService"] == "youtube":
+                            print(n["status"], n["dueAt"], n.get("error"), n["externalLink"], (n["text"] or "")[:40].replace("\n", " "))
+                    if not d["pageInfo"]["hasNextPage"]:
                         break
-                    except RuntimeError as e:
-                        print("retry:", e)
-                else:
-                    return 1
-                for e in d["posts"]["edges"]:
-                    n = e["node"]
-                    print(n["channelService"], n["status"], n["dueAt"], n["sentAt"], n.get("error"), n["externalLink"], (n["text"] or "")[:50].replace("\n", " "))
+                    after = d["pageInfo"]["endCursor"]
             return 0
         if args.graphql:
             if "mutation" in args.graphql.lower():
