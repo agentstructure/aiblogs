@@ -266,6 +266,7 @@ def main() -> int:
     ap.add_argument("--all-channels", action="store_true", help="list every Buffer channel, even with sharing off")
     ap.add_argument("--describe", nargs="+", metavar="TYPE", help="print Buffer input types")
     ap.add_argument("--graphql", metavar="QUERY", help="run a read-only Buffer GraphQL query and print the result")
+    ap.add_argument("--posts", action="store_true", help="print the status and error of recent Buffer posts")
     ap.add_argument("--once", metavar="TEXT", help="post this text once instead of the daily posts")
     ap.add_argument("--video", default="", help="public video URL for --once")
     ap.add_argument("--image", default="", help="public image URL for --once")
@@ -273,7 +274,7 @@ def main() -> int:
     ap.add_argument("--services", default="", help="comma list for --once, e.g. twitter,linkedin,youtube")
     ap.add_argument("--metadata", default="{}", help='JSON per network for --once; "$title" is replaced')
     args = ap.parse_args()
-    if args.describe or args.once or args.all_channels or args.graphql:
+    if args.describe or args.once or args.all_channels or args.graphql or args.posts:
         key = os.environ.get("BUFFER_API_KEY", "").strip()
         if not key:
             raise SystemExit("BUFFER_API_KEY is not set")
@@ -281,6 +282,23 @@ def main() -> int:
             for c in Buffer(key).channels():
                 paused = " (queue paused)" if c.get("isQueuePaused") else ""
                 print(f"{c['service']}: {c.get('displayName') or c['name']} @{c['name']}{paused}")
+            return 0
+        if args.posts:
+            b = Buffer(key)
+            for org in b.query("query { account { organizations { id } } }")["account"]["organizations"]:
+                for fields in ("id channelService status dueAt sentAt externalLink text error { message }",
+                               "id channelService status dueAt sentAt externalLink text error"):
+                    try:
+                        d = b.query("query($o: OrganizationId!) { posts(first: 100, input: {organizationId: $o}) "
+                                    "{ edges { node { %s } } } }" % fields, {"o": org["id"]})
+                        break
+                    except RuntimeError as e:
+                        print("retry:", e)
+                else:
+                    return 1
+                for e in d["posts"]["edges"]:
+                    n = e["node"]
+                    print(n["channelService"], n["status"], n["dueAt"], n["sentAt"], n.get("error"), n["externalLink"], (n["text"] or "")[:50].replace("\n", " "))
             return 0
         if args.graphql:
             if "mutation" in args.graphql.lower():
