@@ -1354,5 +1354,53 @@
    "post_id": "6ae2902504f348da40fe2a3e",
    "due": "2026-10-29T05:30+00:00"
   }
+ },
+ "sec-stock-signals-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae34585e5b6af8cfb8501a0",
+   "due": "2026-10-29T13:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae345866775ed7b835d138d",
+   "due": "2026-10-29T13:44+00:00"
+  }
+ },
+ "rolerank-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae345866775ed7b835d13c7",
+   "due": "2026-10-29T14:04+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae345866597d8ffc7d3e2ea",
+   "due": "2026-10-29T14:24+00:00"
+  }
+ },
+ "opinionpulse-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae34586eac647c07435c01a",
+   "due": "2026-10-29T14:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae34587eac647c07435c045",
+   "due": "2026-10-29T15:04+00:00"
+  }
+ },
+ "fedregtracker-with-gemini": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae34587e5b6af8cfb8501f7",
+   "due": "2026-10-29T15:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae34587c5b02777fe975dc5",
+   "due": "2026-10-29T15:44+00:00"
+  }
  }
 }
