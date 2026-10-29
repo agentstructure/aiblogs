@@ -1258,5 +1258,101 @@
    "post_id": "6ae1f3a3c5d58d36138eb9d7",
    "due": "2026-10-28T15:02+00:00"
   }
+ },
+ "opinionpulse-how-to-follow-public-opinion-on-a-topic-that-matters-to-you": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290207a72c9efac093750",
+   "due": "2026-10-29T00:30+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae2902004f348da40fe27e7",
+   "due": "2026-10-29T00:50+00:00"
+  }
+ },
+ "political-prediction-signals-how-to-read-prediction-market-odds-without-overreading-them": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290217d94db46db25eba7",
+   "due": "2026-10-29T01:10+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae290217a72c9efac0937a9",
+   "due": "2026-10-29T01:30+00:00"
+  }
+ },
+ "fedregtracker-public-comment-periods-how-to-never-miss-the-deadline": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290217a72c9efac0937e6",
+   "due": "2026-10-29T01:50+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae29022b5c2969a0721f94e",
+   "due": "2026-10-29T02:10+00:00"
+  }
+ },
+ "rolerank-tailoring-your-r-sum-to-a-ranked-match-step-by-step": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae2902204f348da40fe284d",
+   "due": "2026-10-29T02:30+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae2902204f348da40fe2880",
+   "due": "2026-10-29T02:50+00:00"
+  }
+ },
+ "clinicaltracker-recruiting-vs-not-yet-recruiting-reading-registry-status": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290227d94db46db25ecac",
+   "due": "2026-10-29T03:10+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae290237d94db46db25ecd7",
+   "due": "2026-10-29T03:30+00:00"
+  }
+ },
+ "govcontractfinder-how-to-read-a-solicitation-in-ten-minutes": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae2902304f348da40fe28d5",
+   "due": "2026-10-29T03:50+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae2902304f348da40fe297b",
+   "due": "2026-10-29T04:10+00:00"
+  }
+ },
+ "realty-bingo-renters-tracking-new-apartments-the-day-they-list": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290247a72c9efac0938a6",
+   "due": "2026-10-29T04:30+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae29024b5c2969a0721fa46",
+   "due": "2026-10-29T04:50+00:00"
+  }
+ },
+ "localeventstracker-presale-alerts-how-to-get-tickets-before-they-sell-out": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae290247d94db46db25ed6a",
+   "due": "2026-10-29T05:10+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae2902504f348da40fe2a3e",
+   "due": "2026-10-29T05:30+00:00"
+  }
  }
 }
