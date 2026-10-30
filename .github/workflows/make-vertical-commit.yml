@@ -27,6 +27,7 @@ jobs:
       - name: Convert
         run: |
           case "$NAME" in *[!a-z0-9-]*|"") echo "bad name"; exit 1;; esac
+          mkdir -p video
           curl -fsSL "$SOURCE_URL" -o src.mp4
           ffmpeg -v error -y -i src.mp4 -filter_complex \
             "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=40:5[bg];[0:v]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuv420p[v]" \
