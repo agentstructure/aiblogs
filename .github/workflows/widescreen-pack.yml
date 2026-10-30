@@ -1,0 +1,39 @@
+name: Widescreen explainer pack
+
+# Downloads the ten 16:9 app explainers and commits them as one zip so they can be saved in one click.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download and zip
+        run: |
+          mkdir -p pack video
+          b=https://agentstructure.ai/video/social
+          get() { curl -fsSL -A "aiblogs/1.0" -o "pack/$1" "$2"; }
+          get 01-ClinicalTracker.org.mp4 $b/clinicaltracker.mp4
+          get 02-Comment2Chat.mp4 $b/comment2chat.mp4
+          get 03-FedReg-Tracker.mp4 $b/fedreg-tracker.mp4
+          get 04-GovContracts.Money.mp4 $b/govcontracts.mp4
+          get 05-LocalEventsTracker.com.mp4 $b/localeventstracker.mp4
+          get 06-OpinionPulse.mp4 $b/opinionpulse.mp4
+          get 07-RoleRank.mp4 $b/rolerank.mp4
+          get 08-SEC-Stock-Signals.mp4 $b/secstocksignals.mp4
+          get 09-PoliticalPredictions.APP.mp4 https://politicalpredictions.app/video/politicalpredictions-explainer.mp4
+          get 10-Realty.Bingo.mp4 https://realty.bingo/media/realty-bingo-explainer.mp4
+          ls -l pack
+          cd pack && zip -q ../video/app-explainers-widescreen.zip *.mp4
+          ls -l ../video
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add video/app-explainers-widescreen.zip
+          git commit -m "Add the widescreen explainer pack"
+          git push
