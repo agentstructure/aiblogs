@@ -1,0 +1,42 @@
+name: Make vertical video and commit it
+
+# Turns a public 16:9 explainer into a 1080x1920 Short (blurred backdrop, video centred) and commits it
+# under video/ so Buffer can fetch it from a public URL.
+on:
+  workflow_dispatch:
+    inputs:
+      source_url:
+        description: "Public URL of the 16:9 video"
+        required: true
+      name:
+        description: "Output name, letters and dashes only (written to video/<name>-vertical.mp4)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_URL: ${{ inputs.source_url }}
+      NAME: ${{ inputs.name }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Convert
+        run: |
+          case "$NAME" in *[!a-z0-9-]*|"") echo "bad name"; exit 1;; esac
+          curl -fsSL "$SOURCE_URL" -o src.mp4
+          ffmpeg -v error -y -i src.mp4 -filter_complex \
+            "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=40:5[bg];[0:v]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuv420p[v]" \
+            -map "[v]" -map 0:a? -c:v libx264 -preset medium -crf 23 -r 30 -c:a aac -b:a 128k -movflags +faststart "video/$NAME-vertical.mp4"
+          ffprobe -v error -show_entries stream=width,height,duration -of csv=p=0 "video/$NAME-vertical.mp4"
+          ls -l video
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add "video/$NAME-vertical.mp4"
+          git commit -m "Add vertical $NAME video"
+          git push
