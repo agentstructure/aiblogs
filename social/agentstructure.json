@@ -1534,5 +1534,77 @@
    "post_id": "6ae496823dc61ec0c20215b9",
    "due": "2026-10-30T15:42+00:00"
   }
+ },
+ "roundup-cursor-and-coding-agents-building-on-alert-data-via-the-api": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae53380ceb491e585caf575",
+   "due": "2026-10-31T00:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53380eaa24d6f9a486a2e",
+   "due": "2026-10-31T00:52+00:00"
+  }
+ },
+ "opinionpulse-brand-and-issue-monitoring-for-small-teams": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae53381a11457434978f1b3",
+   "due": "2026-10-31T01:12+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53381eaa24d6f9a486ad4",
+   "due": "2026-10-31T01:32+00:00"
+  }
+ },
+ "sec-stock-signals-a-beginner-s-guide-to-reading-sec-filings-with-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae533811891472093a5ef1a",
+   "due": "2026-10-31T01:52+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53381eaa24d6f9a486b3b",
+   "due": "2026-10-31T02:12+00:00"
+  }
+ },
+ "political-prediction-signals-alerts-for-the-politicians-you-care-about": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae53381a11457434978f25d",
+   "due": "2026-10-31T02:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53382b84259308babe98c",
+   "due": "2026-10-31T02:52+00:00"
+  }
+ },
+ "govcontractfinder-set-asides-explained-small-business-8-a-hubzone-sdvosb-wosb": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae533821891472093a5efa5",
+   "due": "2026-10-31T03:12+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53382a11457434978f32c",
+   "due": "2026-10-31T03:32+00:00"
+  }
+ },
+ "rolerank-job-searching-while-employed-discreet-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae53383406ab8a0188dd67b",
+   "due": "2026-10-31T03:52+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae53383eaa24d6f9a486c23",
+   "due": "2026-10-31T04:12+00:00"
+  }
  }
 }
