@@ -1606,5 +1606,53 @@
    "post_id": "6ae53383eaa24d6f9a486c23",
    "due": "2026-10-31T04:12+00:00"
   }
+ },
+ "rolerank-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae5e6031891472093d33afe",
+   "due": "2026-10-31T13:13+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae5e6031891472093d33b29",
+   "due": "2026-10-31T13:33+00:00"
+  }
+ },
+ "realty-bingo-with-perplexity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae5e603406ab8a018bbb224",
+   "due": "2026-10-31T13:53+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae5e604a114574349a6c36b",
+   "due": "2026-10-31T14:13+00:00"
+  }
+ },
+ "political-prediction-signals-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae5e604b84259308bd926ec",
+   "due": "2026-10-31T14:33+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae5e604b84259308bd92724",
+   "due": "2026-10-31T14:53+00:00"
+  }
+ },
+ "fedregtracker-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae5e604eaa24d6f9a763f83",
+   "due": "2026-10-31T15:13+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae5e605ceb491e585f950f4",
+   "due": "2026-10-31T15:33+00:00"
+  }
  }
 }
