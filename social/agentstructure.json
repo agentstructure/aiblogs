@@ -1654,5 +1654,101 @@
    "post_id": "6ae5e605ceb491e585f950f4",
    "due": "2026-10-31T15:33+00:00"
   }
+ },
+ "fedregtracker-writing-a-public-comment-a-simple-structure": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae69629f0984eef333fbf05",
+   "due": "2026-11-01T01:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962a1ee172cd6dd2aaab",
+   "due": "2026-11-01T02:05+00:00"
+  }
+ },
+ "clinicaltracker-questions-to-bring-to-your-doctor-about-a-trial": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962a1ee172cd6dd2aae9",
+   "due": "2026-11-01T02:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962af0984eef333fbfac",
+   "due": "2026-11-01T02:45+00:00"
+  }
+ },
+ "localeventstracker-date-night-ideas-generated-from-nearby-events": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962b21c807e9d596456e",
+   "due": "2026-11-01T03:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962bf0984eef333fc00e",
+   "due": "2026-11-01T03:25+00:00"
+  }
+ },
+ "realty-bingo-investors-following-listings-by-area-and-type": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962b1ee172cd6dd2ab87",
+   "due": "2026-11-01T03:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962c1ee172cd6dd2abb2",
+   "due": "2026-11-01T04:05+00:00"
+  }
+ },
+ "explainer-what-an-alert-is-built-from-a-source-a-change-and-a-summary": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962cf0984eef333fc090",
+   "due": "2026-11-01T04:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962c37c1acd2a0df411e",
+   "due": "2026-11-01T04:45+00:00"
+  }
+ },
+ "catholic-reminders-advent-a-daily-companion-to-christmas": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962dab019b908735abad",
+   "due": "2026-11-01T05:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962d21c807e9d5964688",
+   "due": "2026-11-01T05:25+00:00"
+  }
+ },
+ "opinionpulse-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962dab019b908735abfb",
+   "due": "2026-11-01T05:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962e21c807e9d5964740",
+   "due": "2026-11-01T06:05+00:00"
+  }
+ },
+ "opinionpulse-with-telegram": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae6962eab019b908735ac2a",
+   "due": "2026-11-01T06:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae6962eab019b908735ac64",
+   "due": "2026-11-01T06:45+00:00"
+  }
  }
 }
