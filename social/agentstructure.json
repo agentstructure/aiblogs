@@ -1798,5 +1798,89 @@
    "post_id": "6ae77d424c17af1b87145261",
    "due": "2026-11-01T20:31+00:00"
   }
+ },
+ "explainer-how-often-should-an-alert-fire-finding-the-right-level": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b0779ee9f13cc76bfd",
+   "due": "2026-11-02T01:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b001fa08ffbe79f4da",
+   "due": "2026-11-02T02:05+00:00"
+  }
+ },
+ "opinionpulse-with-poe": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b001fa08ffbe79f509",
+   "due": "2026-11-02T02:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b148ce42a6b438e4c6",
+   "due": "2026-11-02T02:45+00:00"
+  }
+ },
+ "explainer-why-alerts-say-illustrative-in-our-examples": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b1902c3fb1deca8daf",
+   "due": "2026-11-02T03:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b148ce42a6b438e4fc",
+   "due": "2026-11-02T03:25+00:00"
+  }
+ },
+ "roundup-meta-ai-in-whatsapp-instagram-and-messenger-a-use-case-guide-update": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b1d016796999fff9f7",
+   "due": "2026-11-02T03:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b1902c3fb1deca8dda",
+   "due": "2026-11-02T04:05+00:00"
+  }
+ },
+ "govcontractfinder-with-instinct": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b2d016796999fffa25",
+   "due": "2026-11-02T04:25+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b2779ee9f13cc76c65",
+   "due": "2026-11-02T04:45+00:00"
+  }
+ },
+ "political-prediction-signals-political-news-vs-market-reaction-a-timeline-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b2902c3fb1deca8e25",
+   "due": "2026-11-02T05:05+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b2d016796999fffa50",
+   "due": "2026-11-02T05:25+00:00"
+  }
+ },
+ "sec-stock-signals-filing-alerts-for-the-stocks-in-your-portfolio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae7e7b2779ee9f13cc76c8f",
+   "due": "2026-11-02T05:45+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae7e7b3d016796999fffa85",
+   "due": "2026-11-02T06:05+00:00"
+  }
  }
 }
