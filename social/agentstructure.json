@@ -1882,5 +1882,53 @@
    "post_id": "6ae7e7b3d016796999fffa85",
    "due": "2026-11-02T06:05+00:00"
   }
+ },
+ "political-prediction-signals-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae9041890c1e19b0347e6d1",
+   "due": "2026-11-02T21:58+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae9041848d61d07d55b5b5b",
+   "due": "2026-11-02T22:18+00:00"
+  }
+ },
+ "opinionpulse-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae9041848d61d07d55b5b97",
+   "due": "2026-11-02T22:38+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae904188d258062778d8f72",
+   "due": "2026-11-02T22:58+00:00"
+  }
+ },
+ "govcontractfinder-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae904193b6f22c15ed09f6d",
+   "due": "2026-11-02T23:18+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae9041990c1e19b0347e735",
+   "due": "2026-11-02T23:38+00:00"
+  }
+ },
+ "fedregtracker-with-lechat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6ae90419a49200278eb8e88b",
+   "due": "2026-11-02T23:58+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6ae90419a49200278eb8e8b6",
+   "due": "2026-11-03T00:18+00:00"
+  }
  }
 }
