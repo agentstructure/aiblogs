@@ -2134,5 +2134,53 @@
    "post_id": "6aea787db8d162e0d8f36ed1",
    "due": "2026-11-04T03:27+00:00"
   }
+ },
+ "political-prediction-signals-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aeb8ba360e67ef1d1ca9627",
+   "due": "2026-11-04T20:01+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aeb8ba323e3db949c160e45",
+   "due": "2026-11-04T20:21+00:00"
+  }
+ },
+ "govcontractfinder-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aeb8ba460e67ef1d1ca9652",
+   "due": "2026-11-04T20:41+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aeb8ba4b1d4b989c0c9284c",
+   "due": "2026-11-04T21:01+00:00"
+  }
+ },
+ "clinicaltracker-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aeb8ba4d0337bbdcd45986a",
+   "due": "2026-11-04T21:21+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aeb8ba523e3db949c160fe9",
+   "due": "2026-11-04T21:41+00:00"
+  }
+ },
+ "catholic-reminders-with-lindy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aeb8ba5f67f30658c55a6dd",
+   "due": "2026-11-04T22:01+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aeb8ba560e67ef1d1ca9692",
+   "due": "2026-11-04T22:21+00:00"
+  }
  }
 }
