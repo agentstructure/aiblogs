@@ -2074,5 +2074,65 @@
    "post_id": "6aea3642dfa67473393b1a21",
    "due": "2026-11-03T22:05+00:00"
   }
+ },
+ "bundle-election-season-toolkit-politicalpredictions-app-plus-opinionpulse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aea787b16e63068f18388ea",
+   "due": "2026-11-04T00:27+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aea787b87b7c6d24c7e75e0",
+   "due": "2026-11-04T00:47+00:00"
+  }
+ },
+ "roundup-personal-ai-assistants-compared-which-can-receive-your-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aea787c16e63068f1838979",
+   "due": "2026-11-04T01:07+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aea787c69ad1ef03b68a16a",
+   "due": "2026-11-04T01:27+00:00"
+  }
+ },
+ "explainer-how-to-tell-a-useful-alert-from-noise": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aea787c69ad1ef03b68a194",
+   "due": "2026-11-04T01:47+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aea787c69ad1ef03b68a1e2",
+   "due": "2026-11-04T02:07+00:00"
+  }
+ },
+ "govcontractfinder-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aea787dff887f055cdad836",
+   "due": "2026-11-04T02:27+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aea787d4c41ba80aa494a55",
+   "due": "2026-11-04T02:47+00:00"
+  }
+ },
+ "explainer-personal-ai-explained-what-it-is-and-why-it-s-different-from-a-chatbot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aea787d4c41ba80aa494a7f",
+   "due": "2026-11-04T03:07+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aea787db8d162e0d8f36ed1",
+   "due": "2026-11-04T03:27+00:00"
+  }
  }
 }
