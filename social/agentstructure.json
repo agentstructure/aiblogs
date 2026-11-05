@@ -2182,5 +2182,101 @@
    "post_id": "6aeb8ba560e67ef1d1ca9692",
    "due": "2026-11-04T22:21+00:00"
   }
+ },
+ "roundup-voice-assistants-and-alerts-alexa-siri-and-gemini-compared": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcebeff03f6944a15496a",
+   "due": "2026-11-05T00:48+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcebebc551efdea331056",
+   "due": "2026-11-05T01:08+00:00"
+  }
+ },
+ "govcontractfinder-with-poe": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcebfff03f6944a15499a",
+   "due": "2026-11-05T01:28+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcebff283c8dd45ad4c9c",
+   "due": "2026-11-05T01:48+00:00"
+  }
+ },
+ "political-prediction-signals-what-prediction-markets-are-in-plain-language": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcebfff03f6944a1549d9",
+   "due": "2026-11-05T02:08+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcebf0d0de73ccef1d500",
+   "due": "2026-11-05T02:28+00:00"
+  }
+ },
+ "opinionpulse-reading-margin-of-error-in-plain-english": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcec0ff03f6944a154a17",
+   "due": "2026-11-05T02:48+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcec0bc551efdea3310e1",
+   "due": "2026-11-05T03:08+00:00"
+  }
+ },
+ "sec-stock-signals-how-to-get-a-text-when-a-company-files-something-new": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcec0ff03f6944a154a62",
+   "due": "2026-11-05T03:28+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcec0bc551efdea33112c",
+   "due": "2026-11-05T03:48+00:00"
+  }
+ },
+ "fedregtracker-how-compliance-teams-can-watch-for-changes": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcec101b5398f879da2be",
+   "due": "2026-11-05T04:08+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcec10d0de73ccef1d5a2",
+   "due": "2026-11-05T04:28+00:00"
+  }
+ },
+ "govcontractfinder-a-go-no-go-checklist-for-new-opportunities": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcec101b5398f879da2e8",
+   "due": "2026-11-05T04:48+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcec10d0de73ccef1d5c9",
+   "due": "2026-11-05T05:08+00:00"
+  }
+ },
+ "rolerank-new-grads-finding-entry-level-roles-that-fit": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aebcec10d0de73ccef1d5ef",
+   "due": "2026-11-05T05:28+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aebcec2bc551efdea331195",
+   "due": "2026-11-05T05:48+00:00"
+  }
  }
 }
