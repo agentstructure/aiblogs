@@ -2386,5 +2386,29 @@
    "post_id": "6aed26117b7e47e8f4fbb804",
    "due": "2026-11-06T05:32+00:00"
   }
+ },
+ "localeventstracker-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee29a7229bf05daf0608bb",
+   "due": "2026-11-06T19:40+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee29a7004e4879a70e400f",
+   "due": "2026-11-06T20:00+00:00"
+  }
+ },
+ "fedregtracker-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee29a7af7e526d43d8d70d",
+   "due": "2026-11-06T20:20+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee29a7a7751de7c9a2b609",
+   "due": "2026-11-06T20:40+00:00"
+  }
  }
 }
