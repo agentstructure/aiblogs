@@ -2482,5 +2482,41 @@
    "post_id": "6aee9832229bf05daf254cc7",
    "due": "2026-11-07T07:12+00:00"
   }
+ },
+ "rolerank-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aef63a29214322f68086add",
+   "due": "2026-11-07T18:00+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aef63a2004e4879a76ea3ac",
+   "due": "2026-11-07T18:20+00:00"
+  }
+ },
+ "realty-bingo-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aef63a3229bf05daf655011",
+   "due": "2026-11-07T18:40+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aef63a3004e4879a76ea405",
+   "due": "2026-11-07T19:00+00:00"
+  }
+ },
+ "localeventstracker-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aef63a3229bf05daf65507f",
+   "due": "2026-11-07T19:20+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aef63a351492b796eef9987",
+   "due": "2026-11-07T19:40+00:00"
+  }
  }
 }
