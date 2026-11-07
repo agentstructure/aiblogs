@@ -2410,5 +2410,77 @@
    "post_id": "6aee29a7a7751de7c9a2b609",
    "due": "2026-11-06T20:40+00:00"
   }
+ },
+ "roundup-proactive-ai-assistants-that-text-you-first": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee982f004e4879a72ec4e1",
+   "due": "2026-11-07T03:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee98309214322f68c8d0bd",
+   "due": "2026-11-07T03:52+00:00"
+  }
+ },
+ "explainer-how-agentstructure-apps-use-public-data-sources": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee98309214322f68c8d0e3",
+   "due": "2026-11-07T04:12+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee9830af7e526d43f8b79e",
+   "due": "2026-11-07T04:32+00:00"
+  }
+ },
+ "bundle-small-business-growth-stack-govcontracts-money-fedreg-and-rolerank": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee98309214322f68c8d127",
+   "due": "2026-11-07T04:52+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee9831a7751de7c9c1d274",
+   "due": "2026-11-07T05:12+00:00"
+  }
+ },
+ "political-prediction-signals-following-a-debate-in-real-time-with-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee9831a7751de7c9c1d29c",
+   "due": "2026-11-07T05:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee9831229bf05daf254bff",
+   "due": "2026-11-07T05:52+00:00"
+  }
+ },
+ "sec-stock-signals-earnings-season-following-filings-instead-of-headlines": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee9831229bf05daf254c25",
+   "due": "2026-11-07T06:12+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee9831004e4879a72ec574",
+   "due": "2026-11-07T06:32+00:00"
+  }
+ },
+ "opinionpulse-following-a-ballot-measure-from-announcement-to-vote": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aee9832004e4879a72ec5d0",
+   "due": "2026-11-07T06:52+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aee9832229bf05daf254cc7",
+   "due": "2026-11-07T07:12+00:00"
+  }
  }
 }
