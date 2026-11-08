@@ -2602,5 +2602,29 @@
    "post_id": "6aefc4479214322f68246487",
    "due": "2026-11-08T05:12+00:00"
   }
+ },
+ "clinicaltracker-with-grok": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af0b7bf229bf05dafc76fd2",
+   "due": "2026-11-08T18:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af0b7bf229bf05dafc76fff",
+   "due": "2026-11-08T18:31+00:00"
+  }
+ },
+ "catholic-reminders-with-copilot": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af0b7c0d6bbae6fa102246e",
+   "due": "2026-11-08T18:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af0b7c0562f2e6de9d28b57",
+   "due": "2026-11-08T19:11+00:00"
+  }
  }
 }
