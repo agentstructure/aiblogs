@@ -2626,5 +2626,77 @@
    "post_id": "6af0b7c0562f2e6de9d28b57",
    "due": "2026-11-08T19:11+00:00"
   }
+ },
+ "explainer-public-data-is-a-superpower-what-governments-publish-for-free": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257c51492b796e72e547",
+   "due": "2026-11-09T01:59+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257c562f2e6de9f3e3db",
+   "due": "2026-11-09T02:19+00:00"
+  }
+ },
+ "explainer-real-time-intelligence-for-everyday-people": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257cd6bbae6fa12332d4",
+   "due": "2026-11-09T02:39+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257dd6bbae6fa1233307",
+   "due": "2026-11-09T02:59+00:00"
+  }
+ },
+ "roundup-the-best-ai-assistants-for-people-who-hate-checking-apps": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257dd6bbae6fa1233330",
+   "due": "2026-11-09T03:19+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257e51492b796e72e5c7",
+   "due": "2026-11-09T03:39+00:00"
+  }
+ },
+ "rolerank-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257ed6bbae6fa123335d",
+   "due": "2026-11-09T03:59+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257e004e4879a7f18874",
+   "due": "2026-11-09T04:19+00:00"
+  }
+ },
+ "roundup-ai-assistants-on-your-phone-vs-on-your-glasses-where-alerts-land": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257ed6bbae6fa1233383",
+   "due": "2026-11-09T04:39+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257e004e4879a7f1889b",
+   "due": "2026-11-09T04:59+00:00"
+  }
+ },
+ "rolerank-with-siri": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af1257f9214322f688b1202",
+   "due": "2026-11-09T05:19+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af1257f004e4879a7f188d0",
+   "due": "2026-11-09T05:39+00:00"
+  }
  }
 }
