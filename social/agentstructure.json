@@ -2746,5 +2746,89 @@
    "post_id": "6af247cc718d70ae70a9871d",
    "due": "2026-11-10T00:58+00:00"
   }
+ },
+ "explainer-from-headlines-to-signals-a-different-way-to-follow-the-world": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29ba9b59b34913a558e10",
+   "due": "2026-11-10T04:35+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29ba9d35dff5701dac233",
+   "due": "2026-11-10T04:55+00:00"
+  }
+ },
+ "opinionpulse-alerts-when-public-opinion-moves-more-than-a-set-amount": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29ba905af22d726068d82",
+   "due": "2026-11-10T05:15+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29ba9223aa16048ea701f",
+   "due": "2026-11-10T05:35+00:00"
+  }
+ },
+ "political-prediction-signals-primary-season-how-to-track-many-races-at-once": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29baa05af22d726068da8",
+   "due": "2026-11-10T05:55+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29baa223aa16048ea704d",
+   "due": "2026-11-10T06:15+00:00"
+  }
+ },
+ "sec-stock-signals-how-small-investors-can-track-the-same-filings-pros-watch": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29baa223aa16048ea7074",
+   "due": "2026-11-10T06:35+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29baae261c09acc9c3f26",
+   "due": "2026-11-10T06:55+00:00"
+  }
+ },
+ "fedregtracker-small-business-owners-rules-worth-tracking": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29bab26f9e6aeeae32669",
+   "due": "2026-11-10T07:15+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29bab05af22d726068de2",
+   "due": "2026-11-10T07:35+00:00"
+  }
+ },
+ "govcontractfinder-subcontracting-opportunities-hiding-in-big-awards": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29babb59b34913a558e68",
+   "due": "2026-11-10T07:55+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29babd35dff5701dac29d",
+   "due": "2026-11-10T08:15+00:00"
+  }
+ },
+ "rolerank-how-to-read-a-job-description-for-what-really-matters": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af29bacd35dff5701dac2c5",
+   "due": "2026-11-10T08:35+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af29bac26f9e6aeeae326b7",
+   "due": "2026-11-10T08:55+00:00"
+  }
  }
 }
