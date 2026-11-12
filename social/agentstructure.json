@@ -2998,5 +2998,77 @@
    "post_id": "6af4c3e153159c0c7515a5ce",
    "due": "2026-11-11T22:12+00:00"
   }
+ },
+ "roundup-open-source-assistants-and-mcp-connecting-your-own-setup": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193ccb4c7286fd078225",
+   "due": "2026-11-12T01:56+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193dcb4c7286fd07824e",
+   "due": "2026-11-12T02:16+00:00"
+  }
+ },
+ "explainer-building-a-weekly-review-around-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193d3d8c751bfd088ea8",
+   "due": "2026-11-12T02:36+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193d2f7f0a6952e2be7f",
+   "due": "2026-11-12T02:56+00:00"
+  }
+ },
+ "fedregtracker-with-le-chat": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193e304f8985c479f01e",
+   "due": "2026-11-12T03:16+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193e2f7f0a6952e2beb5",
+   "due": "2026-11-12T03:36+00:00"
+  }
+ },
+ "political-prediction-signals-using-political-alerts-for-newsletters-and-commentary": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193e304f8985c479f06d",
+   "due": "2026-11-12T03:56+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193ebc9f3773a1b26bb8",
+   "due": "2026-11-12T04:16+00:00"
+  }
+ },
+ "sec-stock-signals-what-changed-in-this-filing-spotting-risk-factor-edits": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193f8a1a2f52b5160fe0",
+   "due": "2026-11-12T04:36+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193f3d8c751bfd088f32",
+   "due": "2026-11-12T04:56+00:00"
+  }
+ },
+ "opinionpulse-how-researchers-and-students-can-use-real-time-opinion-data": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af5193f2f7f0a6952e2bee2",
+   "due": "2026-11-12T05:16+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af5193fcb4c7286fd0782f3",
+   "due": "2026-11-12T05:36+00:00"
+  }
  }
 }
