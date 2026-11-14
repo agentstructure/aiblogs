@@ -3322,5 +3322,29 @@
    "post_id": "6af7ab48bb36d00909d9d537",
    "due": "2026-11-14T04:23+00:00"
   }
+ },
+ "political-prediction-signals-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af8a275e5a113497a9ce16d",
+   "due": "2026-11-14T18:18+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af8a27576c23bf1c730e624",
+   "due": "2026-11-14T18:38+00:00"
+  }
+ },
+ "fedregtracker-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af8a275c5b364e0620a29e6",
+   "due": "2026-11-14T18:58+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af8a276e5a113497a9ce19b",
+   "due": "2026-11-14T19:18+00:00"
+  }
  }
 }
