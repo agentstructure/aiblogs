@@ -3250,5 +3250,77 @@
    "post_id": "6af7685481e1228421bd1acd",
    "due": "2026-11-13T21:38+00:00"
   }
+ },
+ "roundup-browser-agents-and-comet-style-tools-alerts-while-you-browse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab464b28296eb124f31a",
+   "due": "2026-11-14T00:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab4678196a0a972e79ef",
+   "due": "2026-11-14T01:03+00:00"
+  }
+ },
+ "explainer-how-to-ask-your-ai-better-questions-about-an-alert": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab4681e1228421d335fa",
+   "due": "2026-11-14T01:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab464b28296eb124f35b",
+   "due": "2026-11-14T01:43+00:00"
+  }
+ },
+ "explainer-alert-fatigue-and-how-to-avoid-it": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab47d16af15d4de198a7",
+   "due": "2026-11-14T02:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab479257ce33981e5d02",
+   "due": "2026-11-14T02:23+00:00"
+  }
+ },
+ "clinicaltracker-with-muse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab479257ce33981e5d28",
+   "due": "2026-11-14T02:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab47bb36d00909d9d510",
+   "due": "2026-11-14T03:03+00:00"
+  }
+ },
+ "roundup-automation-tools-zapier-make-n8n-and-alerts-what-works-today": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab4778196a0a972e7a66",
+   "due": "2026-11-14T03:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab4781e1228421d33646",
+   "due": "2026-11-14T03:43+00:00"
+  }
+ },
+ "bundle-a-faith-and-family-week-catholic-reminders-plus-local-events": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af7ab484b28296eb124f39f",
+   "due": "2026-11-14T04:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af7ab48bb36d00909d9d537",
+   "due": "2026-11-14T04:23+00:00"
+  }
  }
 }
