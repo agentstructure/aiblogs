@@ -3346,5 +3346,89 @@
    "post_id": "6af8a276e5a113497a9ce19b",
    "due": "2026-11-14T19:18+00:00"
   }
+ },
+ "political-prediction-signals-spotting-a-rumor-vs-a-confirmed-statement": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143cc5b364e0622bb98d",
+   "due": "2026-11-15T02:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9143c918fe79d2eb7be36",
+   "due": "2026-11-15T02:44+00:00"
+  }
+ },
+ "opinionpulse-combining-poll-data-with-prediction-market-odds": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143d76c23bf1c7524135",
+   "due": "2026-11-15T03:04+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9143db9a106584c809fd8",
+   "due": "2026-11-15T03:24+00:00"
+  }
+ },
+ "govcontractfinder-federal-fiscal-year-end-why-the-spending-rush-matters-to-you": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143db9a106584c809ffe",
+   "due": "2026-11-15T03:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9143e76c23bf1c7524182",
+   "due": "2026-11-15T04:04+00:00"
+  }
+ },
+ "sec-stock-signals-tracking-a-competitor-through-its-sec-filings": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143ec5b364e0622bb9e7",
+   "due": "2026-11-15T04:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9143eb9a106584c80a09d",
+   "due": "2026-11-15T04:44+00:00"
+  }
+ },
+ "fedregtracker-how-to-read-a-federal-register-document-quickly": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143fb9a106584c80a0c3",
+   "due": "2026-11-15T05:04+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9143fe86a5789a6e414d2",
+   "due": "2026-11-15T05:24+00:00"
+  }
+ },
+ "clinicaltracker-how-trial-results-get-posted": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9143f76c23bf1c75241d0",
+   "due": "2026-11-15T05:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af91440c5b364e0622bba31",
+   "due": "2026-11-15T06:04+00:00"
+  }
+ },
+ "rolerank-salary-range-posting-laws-and-what-to-look-for-in-a-listing": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af91440e5a113497abe948b",
+   "due": "2026-11-15T06:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af91440918fe79d2eb7beda",
+   "due": "2026-11-15T06:44+00:00"
+  }
  }
 }
