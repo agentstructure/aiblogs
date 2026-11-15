@@ -3430,5 +3430,53 @@
    "post_id": "6af91440918fe79d2eb7beda",
    "due": "2026-11-15T06:44+00:00"
   }
+ },
+ "realty-bingo-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9ff70ee359588b54749a4",
+   "due": "2026-11-15T19:07+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9ff71ee359588b54749cb",
+   "due": "2026-11-15T19:27+00:00"
+  }
+ },
+ "opinionpulse-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9ff71ee359588b5474a00",
+   "due": "2026-11-15T19:47+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9ff71b9a106584ccaa320",
+   "due": "2026-11-15T20:07+00:00"
+  }
+ },
+ "localeventstracker-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9ff72e5a113497a085bca",
+   "due": "2026-11-15T20:27+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9ff724f0276ab9457cdd2",
+   "due": "2026-11-15T20:47+00:00"
+  }
+ },
+ "clinicaltracker-with-manus": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6af9ff72c5b364e062762652",
+   "due": "2026-11-15T21:07+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6af9ff72e5a113497a085c39",
+   "due": "2026-11-15T21:27+00:00"
+  }
  }
 }
