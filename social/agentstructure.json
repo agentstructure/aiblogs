@@ -3598,5 +3598,89 @@
    "post_id": "6afb7dbda72a48ff3c6af015",
    "due": "2026-11-17T00:38+00:00"
   }
+ },
+ "explainer-what-a-conversational-follow-up-is-and-how-it-helps": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd819df36f4d8256ae076",
+   "due": "2026-11-17T04:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd8193e42cd001e5026fc",
+   "due": "2026-11-17T05:04+00:00"
+  }
+ },
+ "sec-stock-signals-sec-filings-for-journalists-a-faster-way-to-catch-the-story": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81985dca6b14a1ec8b0",
+   "due": "2026-11-17T05:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81a4b26315855befd9c",
+   "due": "2026-11-17T05:44+00:00"
+  }
+ },
+ "explainer-why-we-build-small-apps-each-for-one-job": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81a797935b975e00b34",
+   "due": "2026-11-17T06:04+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81a797935b975e00b89",
+   "due": "2026-11-17T06:24+00:00"
+  }
+ },
+ "clinicaltracker-with-poe": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81a4b26315855befddb",
+   "due": "2026-11-17T06:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81a797935b975e00bd0",
+   "due": "2026-11-17T07:04+00:00"
+  }
+ },
+ "political-prediction-signals-how-campaigns-and-reporters-can-watch-the-same-signals": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81bdf36f4d8256ae0dc",
+   "due": "2026-11-17T07:24+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81b3e42cd001e502756",
+   "due": "2026-11-17T07:44+00:00"
+  }
+ },
+ "opinionpulse-what-an-opinion-alert-looks-like-on-your-phone": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81b85dca6b14a1ec913",
+   "due": "2026-11-17T08:04+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81b797935b975e00c02",
+   "due": "2026-11-17T08:24+00:00"
+  }
+ },
+ "govcontractfinder-state-and-local-contracts-vs-federal-where-to-start": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afbd81bdf36f4d8256ae105",
+   "due": "2026-11-17T08:44+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afbd81cdf36f4d8256ae12c",
+   "due": "2026-11-17T09:04+00:00"
+  }
  }
 }
