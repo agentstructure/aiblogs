@@ -3682,5 +3682,53 @@
    "post_id": "6afbd81cdf36f4d8256ae12c",
    "due": "2026-11-17T09:04+00:00"
   }
+ },
+ "sec-stock-signals-with-notion": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afcbf79ea84dfa9254615d3",
+   "due": "2026-11-17T21:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afcbf7930e8d67e7ca3855d",
+   "due": "2026-11-17T21:31+00:00"
+  }
+ },
+ "political-prediction-signals-with-notion": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afcbf797acfe506d928cae4",
+   "due": "2026-11-17T21:51+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afcbf7aa4d3be4123feadf0",
+   "due": "2026-11-17T22:11+00:00"
+  }
+ },
+ "opinionpulse-with-notion": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afcbf7ab3721c6a00c94997",
+   "due": "2026-11-17T22:31+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afcbf7ab3721c6a00c949cf",
+   "due": "2026-11-17T22:51+00:00"
+  }
+ },
+ "clinicaltracker-with-notion": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afcbf7aea84dfa92546161b",
+   "due": "2026-11-17T23:11+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afcbf7bea84dfa925461642",
+   "due": "2026-11-17T23:31+00:00"
+  }
  }
 }
