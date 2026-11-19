@@ -3874,5 +3874,65 @@
    "post_id": "6afe0b731173b0b5f0e2e641",
    "due": "2026-11-18T23:07+00:00"
   }
+ },
+ "explainer-a-tour-of-the-agentstructure-app-family": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afe5846b16549e9b817d853",
+   "due": "2026-11-19T02:15+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afe5846749099bdc7010d52",
+   "due": "2026-11-19T02:35+00:00"
+  }
+ },
+ "bundle-the-job-hunter-s-week-rolerank-plus-local-events": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afe58463802f5b9fc5ccc29",
+   "due": "2026-11-19T02:55+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afe5847b16549e9b817d942",
+   "due": "2026-11-19T03:15+00:00"
+  }
+ },
+ "roundup-car-and-commute-hearing-alerts-hands-free": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afe5847749099bdc7010dc9",
+   "due": "2026-11-19T03:35+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afe58473802f5b9fc5ccdff",
+   "due": "2026-11-19T03:55+00:00"
+  }
+ },
+ "explainer-which-agentstructure-app-is-right-for-me-a-quick-guide": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afe584746636f319e7d144a",
+   "due": "2026-11-19T04:15+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afe5848749099bdc7010e49",
+   "due": "2026-11-19T04:35+00:00"
+  }
+ },
+ "realty-bingo-with-siri": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6afe584859eff0b616d15fd6",
+   "due": "2026-11-19T04:55+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6afe5848f6b6aa0cd4938dd6",
+   "due": "2026-11-19T05:15+00:00"
+  }
  }
 }
