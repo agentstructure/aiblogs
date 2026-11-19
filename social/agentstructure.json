@@ -3934,5 +3934,53 @@
    "post_id": "6afe5848f6b6aa0cd4938dd6",
    "due": "2026-11-19T05:15+00:00"
   }
+ },
+ "sec-stock-signals-with-raycast": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aff5e571f6cb90e69ecb0f0",
+   "due": "2026-11-19T20:53+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aff5e58eda1c6ed23788dc7",
+   "due": "2026-11-19T21:13+00:00"
+  }
+ },
+ "rolerank-with-raycast": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aff5e58eda1c6ed23788dee",
+   "due": "2026-11-19T21:33+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aff5e58c233673006c28da3",
+   "due": "2026-11-19T21:53+00:00"
+  }
+ },
+ "govcontractfinder-with-raycast": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aff5e58086d649842580407",
+   "due": "2026-11-19T22:13+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aff5e5924447cafbd50bbe5",
+   "due": "2026-11-19T22:33+00:00"
+  }
+ },
+ "fedregtracker-with-raycast": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6aff5e59eda1c6ed23788ec5",
+   "due": "2026-11-19T22:53+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6aff5e59eda1c6ed23788eec",
+   "due": "2026-11-19T23:13+00:00"
+  }
  }
 }
