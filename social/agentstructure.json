@@ -3982,5 +3982,101 @@
    "post_id": "6aff5e59eda1c6ed23788eec",
    "due": "2026-11-19T23:13+00:00"
   }
+ },
+ "sec-stock-signals-following-ipo-and-s-1-filings-as-they-land": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa851d5f8acdd0d61afb4",
+   "due": "2026-11-20T02:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa8510f5eda1a57b1ece2",
+   "due": "2026-11-20T02:29+00:00"
+  }
+ },
+ "political-prediction-signals-midterms-101-what-to-track-and-when": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa8517b0a126ceb9bb517",
+   "due": "2026-11-20T02:49+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa8510f5eda1a57b1ed2e",
+   "due": "2026-11-20T03:09+00:00"
+  }
+ },
+ "govcontractfinder-alerts-for-contracts-in-your-state": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa851d5f8acdd0d61affd",
+   "due": "2026-11-20T03:29+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa8524c1afd05dee2be7e",
+   "due": "2026-11-20T03:49+00:00"
+  }
+ },
+ "opinionpulse-opinionpulse-for-newsletter-writers": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa8524c1afd05dee2beaf",
+   "due": "2026-11-20T04:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa852738ce4635f79be1e",
+   "due": "2026-11-20T04:29+00:00"
+  }
+ },
+ "rolerank-how-recruiters-and-job-seekers-see-the-same-posting-differen": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa852d5f8acdd0d61b050",
+   "due": "2026-11-20T04:49+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa852738ce4635f79be45",
+   "due": "2026-11-20T05:09+00:00"
+  }
+ },
+ "realty-bingo-seller-s-view-watching-competing-listings": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa8527b0a126ceb9bb5e5",
+   "due": "2026-11-20T05:29+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa8537b0a126ceb9bb62e",
+   "due": "2026-11-20T05:49+00:00"
+  }
+ },
+ "clinicaltracker-rare-disease-tracking-sparse-trial-activity": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa8537b0a126ceb9bb654",
+   "due": "2026-11-20T06:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa853d5f8acdd0d61b07f",
+   "due": "2026-11-20T06:29+00:00"
+  }
+ },
+ "fedregtracker-public-inspection-filings-explained-and-what-they-aren-t": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6affa853d5f8acdd0d61b0a5",
+   "due": "2026-11-20T06:49+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6affa853ca85ebefb0e917ac",
+   "due": "2026-11-20T07:09+00:00"
+  }
  }
 }
