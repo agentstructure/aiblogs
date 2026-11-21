@@ -4198,5 +4198,53 @@
    "post_id": "6b00f7b55e993799d8432351",
    "due": "2026-11-21T05:40+00:00"
   }
+ },
+ "rolerank-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b01ee41d5eabfb8cc556096",
+   "due": "2026-11-21T19:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b01ee42846b0ee90730bb8e",
+   "due": "2026-11-21T19:52+00:00"
+  }
+ },
+ "localeventstracker-with-raycast": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b01ee428bd84d596611cd7c",
+   "due": "2026-11-21T20:12+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b01ee428bd84d596611cda7",
+   "due": "2026-11-21T20:32+00:00"
+  }
+ },
+ "govcontractfinder-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b01ee420247969092f76639",
+   "due": "2026-11-21T20:52+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b01ee420247969092f76666",
+   "due": "2026-11-21T21:12+00:00"
+  }
+ },
+ "catholic-reminders-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b01ee438bd84d596611cddb",
+   "due": "2026-11-21T21:32+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b01ee43d864a011056c3c1d",
+   "due": "2026-11-21T21:52+00:00"
+  }
  }
 }
