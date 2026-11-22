@@ -4246,5 +4246,89 @@
    "post_id": "6b01ee43d864a011056c3c1d",
    "due": "2026-11-21T21:52+00:00"
   }
+ },
+ "explainer-agentstructure-for-students": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026220d864a0110593b66f",
+   "due": "2026-11-22T03:46+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b026220d5eabfb8cc7c9dd6",
+   "due": "2026-11-22T04:06+00:00"
+  }
+ },
+ "political-prediction-signals-prediction-markets-and-polls-how-they-differ": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026220d5eabfb8cc7c9dfc",
+   "due": "2026-11-22T04:26+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b026221cc364169c1249925",
+   "due": "2026-11-22T04:46+00:00"
+  }
+ },
+ "sec-stock-signals-why-a-filing-alert-is-not-investment-advice": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026221c72676f5e9fde63c",
+   "due": "2026-11-22T05:06+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b026221846b0ee907586b58",
+   "due": "2026-11-22T05:26+00:00"
+  }
+ },
+ "opinionpulse-tracking-opinion-on-ai-policy": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026221846b0ee907586b7e",
+   "due": "2026-11-22T05:46+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b02622102479690921eb5cc",
+   "due": "2026-11-22T06:06+00:00"
+  }
+ },
+ "govcontractfinder-how-consultants-track-opportunities-for-several-clients": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026221d864a0110593b6df",
+   "due": "2026-11-22T06:26+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b026222d5eabfb8cc7c9e4e",
+   "due": "2026-11-22T06:46+00:00"
+  }
+ },
+ "fedregtracker-effective-dates-and-compliance-dates-keeping-them-straight": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026222cc364169c1249959",
+   "due": "2026-11-22T07:06+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b026222c72676f5e9fde674",
+   "due": "2026-11-22T07:26+00:00"
+  }
+ },
+ "rolerank-cover-letters-from-a-match-alert-a-workflow": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b026222846b0ee907586bad",
+   "due": "2026-11-22T07:46+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b02622202479690921eb607",
+   "due": "2026-11-22T08:06+00:00"
+  }
  }
 }
