@@ -4462,5 +4462,53 @@
    "post_id": "6b0388f8d5eabfb8cceffa00",
    "due": "2026-11-23T05:04+00:00"
   }
+ },
+ "realty-bingo-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b04d23cc43c1f2f5c71755d",
+   "due": "2026-11-24T00:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b04d23d53fb23650b41cbea",
+   "due": "2026-11-24T00:29+00:00"
+  }
+ },
+ "political-prediction-signals-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b04d23d53fb23650b41cc18",
+   "due": "2026-11-24T00:49+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b04d23df0d7b1e0de973f9f",
+   "due": "2026-11-24T01:09+00:00"
+  }
+ },
+ "localeventstracker-with-goose": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b04d23ec43c1f2f5c7175a2",
+   "due": "2026-11-24T01:29+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b04d23e6734c08a2697117e",
+   "due": "2026-11-24T01:49+00:00"
+  }
+ },
+ "catholic-reminders-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b04d23e9a4bd32ca3dafc88",
+   "due": "2026-11-24T02:09+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b04d23fdb52b449cf0c57fb",
+   "due": "2026-11-24T02:29+00:00"
+  }
  }
 }
