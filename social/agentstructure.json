@@ -4510,5 +4510,125 @@
    "post_id": "6b04d23fdb52b449cf0c57fb",
    "due": "2026-11-24T02:29+00:00"
   }
+ },
+ "explainer-agentstructure-for-retirees": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f57b1304ce46df2906d",
+   "due": "2026-11-24T22:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f57b1304ce46df29099",
+   "due": "2026-11-24T23:02+00:00"
+  }
+ },
+ "roundup-discord-and-community-bots-alerts-for-your-server": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5768cb46d0540f6d81",
+   "due": "2026-11-24T23:22+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f571ddbd3d42fb69e8a",
+   "due": "2026-11-24T23:42+00:00"
+  }
+ },
+ "localeventstracker-with-siri": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5868cb46d0540f6dc1",
+   "due": "2026-11-25T00:02+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f58045c851eced204df",
+   "due": "2026-11-25T00:22+00:00"
+  }
+ },
+ "localeventstracker-with-telegram": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5826517e3cdc4e6744",
+   "due": "2026-11-25T00:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f584f7539498fcf53e2",
+   "due": "2026-11-25T01:02+00:00"
+  }
+ },
+ "explainer-agentstructure-for-busy-parents": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f594f7539498fcf5408",
+   "due": "2026-11-25T01:22+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f5926517e3cdc4e676b",
+   "due": "2026-11-25T01:42+00:00"
+  }
+ },
+ "sec-stock-signals-using-sec-stock-signals-as-a-research-assistant-for-your-own": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f591ddbd3d42fb69f12",
+   "due": "2026-11-25T02:02+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f59b1304ce46df29128",
+   "due": "2026-11-25T02:22+00:00"
+  }
+ },
+ "sec-stock-signals-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5a68cb46d0540f6e34",
+   "due": "2026-11-25T02:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f5a1ddbd3d42fb69f61",
+   "due": "2026-11-25T03:02+00:00"
+  }
+ },
+ "rolerank-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5ab1304ce46df29155",
+   "due": "2026-11-25T03:22+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f5a68cb46d0540f6e77",
+   "due": "2026-11-25T03:42+00:00"
+  }
+ },
+ "govcontractfinder-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5a26517e3cdc4e67ce",
+   "due": "2026-11-25T04:02+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f5b1ddbd3d42fb69f8f",
+   "due": "2026-11-25T04:22+00:00"
+  }
+ },
+ "fedregtracker-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b060f5b68cb46d0540f6eb3",
+   "due": "2026-11-25T04:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b060f5b4f7539498fcf5585",
+   "due": "2026-11-25T05:02+00:00"
+  }
  }
 }
