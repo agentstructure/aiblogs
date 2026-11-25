@@ -4726,5 +4726,53 @@
    "post_id": "6b066c00d8874a038cf2d6f8",
    "due": "2026-11-25T10:17+00:00"
   }
+ },
+ "realty-bingo-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b075654b8e2338b8565aa05",
+   "due": "2026-11-25T21:57+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07565507071a60672d3f9b",
+   "due": "2026-11-25T22:17+00:00"
+  }
+ },
+ "political-prediction-signals-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b0756559f6dda31cc9b8d5c",
+   "due": "2026-11-25T22:37+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b075655b8e2338b8565aa32",
+   "due": "2026-11-25T22:57+00:00"
+  }
+ },
+ "opinionpulse-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b0756559f6dda31cc9b8d89",
+   "due": "2026-11-25T23:17+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b075655d4eda4b659b20cd0",
+   "due": "2026-11-25T23:37+00:00"
+  }
+ },
+ "clinicaltracker-with-lmstudio": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b075655a791bea1b22b90ca",
+   "due": "2026-11-25T23:57+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b075656b96dd8d351642485",
+   "due": "2026-11-26T00:17+00:00"
+  }
  }
 }
