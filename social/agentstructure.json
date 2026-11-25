@@ -4630,5 +4630,101 @@
    "post_id": "6b060f5b4f7539498fcf5585",
    "due": "2026-11-25T05:02+00:00"
   }
+ },
+ "political-prediction-signals-sending-political-alerts-to-your-personal-ai": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bfcb6204bca46c983e2",
+   "due": "2026-11-25T05:17+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bfdb6204bca46c9844e",
+   "due": "2026-11-25T05:37+00:00"
+  }
+ },
+ "fedregtracker-tracking-environmental-rules": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bfd40e1d58d12fc8e6d",
+   "due": "2026-11-25T05:57+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bfd9cddd8483aada2a2",
+   "due": "2026-11-25T06:17+00:00"
+  }
+ },
+ "rolerank-weekly-job-search-routine-using-text-alerts": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bfe22dfb7833a7fa34b",
+   "due": "2026-11-25T06:37+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bfeb6204bca46c984b1",
+   "due": "2026-11-25T06:57+00:00"
+  }
+ },
+ "opinionpulse-tracking-opinion-on-local-issues": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bfed8874a038cf2d4ae",
+   "due": "2026-11-25T07:17+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bfed8874a038cf2d4db",
+   "due": "2026-11-25T07:37+00:00"
+  }
+ },
+ "govcontractfinder-from-alert-to-bid-a-first-timer-s-walkthrough": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bffb6204bca46c985c7",
+   "due": "2026-11-25T07:57+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bff40e1d58d12fc8f0a",
+   "due": "2026-11-25T08:17+00:00"
+  }
+ },
+ "localeventstracker-holiday-events-by-city": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066bff22dfb7833a7fa3ad",
+   "due": "2026-11-25T08:37+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066bffb6204bca46c985f0",
+   "due": "2026-11-25T08:57+00:00"
+  }
+ },
+ "clinicaltracker-medical-information-vs-medical-advice": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066c009cddd8483aada47b",
+   "due": "2026-11-25T09:17+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066c0022dfb7833a7fa41e",
+   "due": "2026-11-25T09:37+00:00"
+  }
+ },
+ "realty-bingo-why-an-asking-price-isn-t-a-valuation": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b066c0040e1d58d12fc902b",
+   "due": "2026-11-25T09:57+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b066c00d8874a038cf2d6f8",
+   "due": "2026-11-25T10:17+00:00"
+  }
  }
 }
