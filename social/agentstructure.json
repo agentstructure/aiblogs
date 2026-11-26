@@ -4774,5 +4774,65 @@
    "post_id": "6b075656b96dd8d351642485",
    "due": "2026-11-26T00:17+00:00"
   }
+ },
+ "catholic-reminders-catholic-reminders-for-the-homebound-and-caregivers": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b07abd29f6dda31ccbeefe3",
+   "due": "2026-11-26T04:02+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07abd307071a6067506728",
+   "due": "2026-11-26T04:22+00:00"
+  }
+ },
+ "explainer-how-to-share-an-alert-with-someone-who-isn-t-on-ai": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b07abd39f6dda31ccbef009",
+   "due": "2026-11-26T04:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07abd3a791bea1b24ef79f",
+   "due": "2026-11-26T05:02+00:00"
+  }
+ },
+ "catholic-reminders-with-muse": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b07abd3b8e2338b85895e3a",
+   "due": "2026-11-26T05:22+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07abd3a791bea1b24ef7c6",
+   "due": "2026-11-26T05:42+00:00"
+  }
+ },
+ "roundup-notes-apps-and-second-brains-saving-alerts-where-you-think": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b07abd407071a606750675b",
+   "due": "2026-11-26T06:02+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07abd4b96dd8d35187495a",
+   "due": "2026-11-26T06:22+00:00"
+  }
+ },
+ "bundle-the-investor-researcher-stack-sec-plus-opinionpulse-plus-politicalpredictions": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b07abd4b8e2338b85895e68",
+   "due": "2026-11-26T06:42+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b07abd4d4eda4b659d55f6f",
+   "due": "2026-11-26T07:02+00:00"
+  }
  }
 }
