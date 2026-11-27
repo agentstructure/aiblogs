@@ -4978,5 +4978,53 @@
    "post_id": "6b08fd83658222306cdc2e15",
    "due": "2026-11-27T09:03+00:00"
   }
+ },
+ "sec-stock-signals-with-anythingllm": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b09f3b2277f27038a3cbbc7",
+   "due": "2026-11-27T21:33+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b09f3b2b5cd052fe290e848",
+   "due": "2026-11-27T21:53+00:00"
+  }
+ },
+ "opinionpulse-with-anythingllm": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b09f3b3b5cd052fe290e8e4",
+   "due": "2026-11-27T22:13+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b09f3b3b5cd052fe290e90b",
+   "due": "2026-11-27T22:33+00:00"
+  }
+ },
+ "fedregtracker-with-anythingllm": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b09f3b3277f27038a3cbc3e",
+   "due": "2026-11-27T22:53+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b09f3b3c02ca0988ab770a9",
+   "due": "2026-11-27T23:13+00:00"
+  }
+ },
+ "clinicaltracker-with-anythingllm": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b09f3b4277f27038a3cbc64",
+   "due": "2026-11-27T23:33+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b09f3b42ea34800c296453f",
+   "due": "2026-11-27T23:53+00:00"
+  }
  }
 }
