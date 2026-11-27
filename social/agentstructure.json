@@ -4882,5 +4882,101 @@
    "post_id": "6b08a5a5cce15832d7d46db0",
    "due": "2026-11-27T00:08+00:00"
   }
+ },
+ "catholic-reminders-with-siri": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd80049983dcfb851e00",
+   "due": "2026-11-27T04:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd80049983dcfb851e35",
+   "due": "2026-11-27T04:23+00:00"
+  }
+ },
+ "opinionpulse-getting-opinion-alerts-inside-your-personal-ai": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd81062ed764a8deca68",
+   "due": "2026-11-27T04:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd81776ce21276e20fb7",
+   "due": "2026-11-27T05:03+00:00"
+  }
+ },
+ "sec-stock-signals-weekend-reading-list-how-to-catch-up-on-a-week-of-filings-in": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd81e94385a8fd6ed643",
+   "due": "2026-11-27T05:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd81e94385a8fd6ed736",
+   "due": "2026-11-27T05:43+00:00"
+  }
+ },
+ "political-prediction-signals-staying-informed-without-doomscrolling": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd811fd46e62e70d3772",
+   "due": "2026-11-27T06:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd82658222306cdc2b29",
+   "due": "2026-11-27T06:23+00:00"
+  }
+ },
+ "explainer-espa-ol-gu-a-de-las-alertas-de-agentstructure": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd82776ce21276e2100f",
+   "due": "2026-11-27T06:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd82776ce21276e21036",
+   "due": "2026-11-27T07:03+00:00"
+  }
+ },
+ "fedregtracker-tracking-financial-services-rules": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd82062ed764a8decaca",
+   "due": "2026-11-27T07:23+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd82658222306cdc2dd1",
+   "due": "2026-11-27T07:43+00:00"
+  }
+ },
+ "govcontractfinder-using-your-ai-assistant-to-summarize-a-solicitation": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd82776ce21276e21062",
+   "due": "2026-11-27T08:03+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd831fd46e62e70d37a1",
+   "due": "2026-11-27T08:23+00:00"
+  }
+ },
+ "rolerank-having-your-personal-ai-draft-the-application": {
+  "6ac927b26a5c39ccb664749c": {
+   "service": "twitter",
+   "post_id": "6b08fd83776ce21276e21088",
+   "due": "2026-11-27T08:43+00:00"
+  },
+  "6ac926da6a5c39ccb6646e55": {
+   "service": "linkedin",
+   "post_id": "6b08fd83658222306cdc2e15",
+   "due": "2026-11-27T09:03+00:00"
+  }
  }
 }
